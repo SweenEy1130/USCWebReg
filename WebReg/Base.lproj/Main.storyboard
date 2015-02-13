@@ -38,7 +38,7 @@
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o4z-8Y-V1W">
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ama-oK-ixx">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ama-oK-ixx">
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4X-wz-gUg">
                                                 <rect key="frame" x="0.0" y="0.0" width="38" height="30"/>
@@ -184,23 +184,23 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="AI4-fq-IiL"/>
-                                <exclude reference="miT-Zh-8AE"/>
-                                <exclude reference="u29-ez-D5e"/>
                                 <exclude reference="3BE-Ui-yfp"/>
                                 <exclude reference="Xbf-Yj-cSt"/>
                                 <exclude reference="fUj-TA-f1n"/>
+                                <exclude reference="AI4-fq-IiL"/>
+                                <exclude reference="miT-Zh-8AE"/>
+                                <exclude reference="u29-ez-D5e"/>
                                 <exclude reference="Pju-Of-A4S"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="AI4-fq-IiL"/>
-                                <include reference="miT-Zh-8AE"/>
-                                <include reference="u29-ez-D5e"/>
                                 <include reference="3BE-Ui-yfp"/>
                                 <include reference="Xbf-Yj-cSt"/>
                                 <include reference="fUj-TA-f1n"/>
+                                <include reference="AI4-fq-IiL"/>
+                                <include reference="miT-Zh-8AE"/>
+                                <include reference="u29-ez-D5e"/>
                                 <include reference="Pju-Of-A4S"/>
                             </mask>
                         </variation>
