@@ -15,6 +15,7 @@
     IBOutlet UIScrollView *LoginScroll;
 }
 
+- (IBAction)SignUp:(id)sender;
 - (IBAction)LoginSubmit:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *LoginButton;
 

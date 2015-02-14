@@ -70,6 +70,10 @@
                                                     <color key="titleColor" red="0.97647058819999999" green="0.69803921570000005" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="LoginSubmit:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7ei-vs-riF"/>
+                                                    <action selector="SignUp:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="bIQ-rH-A6O"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -214,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-516" y="176.25"/>
+            <point key="canvasLocation" x="-1271" y="133"/>
         </scene>
     </scenes>
     <resources>

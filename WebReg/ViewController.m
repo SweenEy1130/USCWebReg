@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "TabbarController.h"
+#import "RDVTabBarController.h"
+#import "TabbarController.h"
 
 @interface ViewController ()
 
@@ -26,7 +29,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)SignUp:(id)sender {
+}
+
 - (IBAction)LoginSubmit:(id)sender {
+    RDVTabBarController *tabbarController = [[TabbarController alloc] init];
+    [self presentViewController:tabbarController animated:YES completion: nil];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
