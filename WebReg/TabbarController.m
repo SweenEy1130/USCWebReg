@@ -72,7 +72,8 @@
                         //  [UIColor colorWithRed:0.514 green:0 blue:0.039 alpha:1] /*#83000a*/,
                         // [UIColor colorWithRed:0.965 green:0.643 blue:0.082 alpha:1] /*#f6a415*/,
                        };
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.965 green:0.643 blue:0.082 alpha:1]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
     [navigationBarAppearance setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];
     [navigationBarAppearance setTitleTextAttributes:textAttributes];
 }

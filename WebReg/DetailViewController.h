@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController
-
+@interface DetailViewController : UIViewController<NSURLConnectionDelegate>
+{
+    NSMutableData *_responseData;
+}
+@property (nonatomic, assign) NSInteger _courseID;
+@property (nonatomic, assign) NSInteger _termCode;
 @end
