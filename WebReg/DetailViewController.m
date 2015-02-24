@@ -17,13 +17,14 @@
 
 @implementation DetailViewController
 
+@synthesize _courseCode;
 @synthesize _courseID;
 @synthesize _termCode;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"Details";
+    self.title = self._courseCode;
     self.view.backgroundColor = [UIColor colorWithRed:244/255.0 green:244/255.0 blue:244/255.0 alpha:1.0];
     
     _scrollView =[[UIScrollView alloc] initWithFrame:CGRectMake(0, 10, self.view.frame.size.width, self.view.frame.size.height - 75)];
@@ -103,7 +104,7 @@
     }
     
     NSString *description = JSONData[@"DESCRIPTION"];
-    NSString *title = [[NSString alloc]initWithFormat:@"%@\n%@", JSONData[@"SIS_COURSE_ID"], JSONData[@"TITLE"]];
+    NSString *title = JSONData[@"TITLE"];
     NSString *unit;
     float min_unit = [JSONData[@"MIN_UNITS"] floatValue];
     float max_unit = [JSONData[@"MAX_UNITS"] floatValue];

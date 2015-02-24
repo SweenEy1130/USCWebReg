@@ -1,5 +1,5 @@
 //
-//  MeViewController.h
+//  TFTableViewCell.h
 //  WebReg
 //
 //  Created by ZhengLi on 15/2/23.
@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@interface MeViewController : UITableViewController
+
+@interface TFTableViewCell : UITableViewCell
 
 @end

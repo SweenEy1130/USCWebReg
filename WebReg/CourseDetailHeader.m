@@ -40,14 +40,13 @@
         // [descriptionField setContentInset:UIEdgeInsetsMake(-8,0,8,0)];
         [descriptionField setFont:[UIFont fontWithName:@"Helvetica" size:16]];
         [descriptionField setText:description];
-        [descriptionField setTextColor:[UIColor colorWithRed:93.0/255.0 green:89/255.0 blue:89/255.0 alpha:1.0]];
+        [descriptionField setTextColor:[UIColor colorWithRed:63.0/255.0 green:59/255.0 blue:59/255.0 alpha:1.0]];
         [descriptionField setBackgroundColor:[UIColor clearColor]];
         descriptionField.editable = NO;
         descriptionField.scrollEnabled = NO;
         [descriptionField sizeToFit];
         [descriptionField layoutIfNeeded];
         [self addSubview:descriptionField];
-        NSLog(@"%f", descriptionField.frame.size.height);
         
         CGRect newframe = frame;
         newframe.size.height = titleField.bounds.size.height + unitField.bounds.size.height + descriptionField.bounds.size.height;

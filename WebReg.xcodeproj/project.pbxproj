@@ -30,6 +30,14 @@
 		1B7377401A8E90C200444E78 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B73773F1A8E90C200444E78 /* DetailViewController.m */; };
 		1B7377451A8EA8CD00444E78 /* ico_make.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B7377421A8EA8CD00444E78 /* ico_make.png */; };
 		1B7377461A8EA8CD00444E78 /* JSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7377441A8EA8CD00444E78 /* JSDropDownMenu.m */; };
+		1BA1F69F1A9C453200176424 /* .DS in Resources */ = {isa = PBXBuildFile; fileRef = 1BA1F6931A9C453200176424 /* .DS */; };
+		1BA1F6A01A9C453200176424 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA1F6961A9C453200176424 /* circle.png */; };
+		1BA1F6A11A9C453200176424 /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA1F6971A9C453200176424 /* circle@2x.png */; };
+		1BA1F6A21A9C453200176424 /* pullrefresh.aif in Resources */ = {isa = PBXBuildFile; fileRef = 1BA1F6981A9C453200176424 /* pullrefresh.aif */; };
+		1BA1F6A31A9C453200176424 /* XHPathCover.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA1F69A1A9C453200176424 /* XHPathCover.m */; };
+		1BA1F6A51A9C453200176424 /* XHWaterDropRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA1F69E1A9C453200176424 /* XHWaterDropRefresh.m */; };
+		1BA1F6A91A9C474300176424 /* USC-Campus-Night-PC.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1BA1F6A81A9C474300176424 /* USC-Campus-Night-PC.jpg */; };
+		1BA1F6AC1A9C500700176424 /* TFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA1F6AB1A9C500700176424 /* TFTableViewCell.m */; };
 		1BB35AE21A9A9AEF000BB427 /* CourseSectionDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB35AE11A9A9AEF000BB427 /* CourseSectionDetail.m */; };
 		3F2B9B4F1A8A8B510097AFD5 /* USC_Trojans4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F2B9B4E1A8A8B510097AFD5 /* USC_Trojans4.jpg */; };
 		3F3062991A8A780800FEC85F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3062981A8A780800FEC85F /* main.m */; };
@@ -86,6 +94,17 @@
 		1B7377421A8EA8CD00444E78 /* ico_make.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_make.png; sourceTree = "<group>"; };
 		1B7377431A8EA8CD00444E78 /* JSDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSDropDownMenu.h; sourceTree = "<group>"; };
 		1B7377441A8EA8CD00444E78 /* JSDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDropDownMenu.m; sourceTree = "<group>"; };
+		1BA1F6931A9C453200176424 /* .DS */ = {isa = PBXFileReference; lastKnownFileType = file; path = .DS; sourceTree = "<group>"; };
+		1BA1F6961A9C453200176424 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
+		1BA1F6971A9C453200176424 /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle@2x.png"; sourceTree = "<group>"; };
+		1BA1F6981A9C453200176424 /* pullrefresh.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = pullrefresh.aif; sourceTree = "<group>"; };
+		1BA1F6991A9C453200176424 /* XHPathCover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHPathCover.h; sourceTree = "<group>"; };
+		1BA1F69A1A9C453200176424 /* XHPathCover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPathCover.m; sourceTree = "<group>"; };
+		1BA1F69D1A9C453200176424 /* XHWaterDropRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHWaterDropRefresh.h; sourceTree = "<group>"; };
+		1BA1F69E1A9C453200176424 /* XHWaterDropRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHWaterDropRefresh.m; sourceTree = "<group>"; };
+		1BA1F6A81A9C474300176424 /* USC-Campus-Night-PC.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "USC-Campus-Night-PC.jpg"; path = "Images.xcassets/USC-Campus-Night-PC.jpg"; sourceTree = "<group>"; };
+		1BA1F6AA1A9C500700176424 /* TFTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFTableViewCell.h; sourceTree = "<group>"; };
+		1BA1F6AB1A9C500700176424 /* TFTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFTableViewCell.m; sourceTree = "<group>"; };
 		1BB35AE01A9A9AEF000BB427 /* CourseSectionDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseSectionDetail.h; sourceTree = "<group>"; };
 		1BB35AE11A9A9AEF000BB427 /* CourseSectionDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseSectionDetail.m; sourceTree = "<group>"; };
 		3F2B9B4E1A8A8B510097AFD5 /* USC_Trojans4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = USC_Trojans4.jpg; sourceTree = "<group>"; };
@@ -160,6 +179,8 @@
 				1B73773F1A8E90C200444E78 /* DetailViewController.m */,
 				1B5927FB1A9C001900B660BD /* MeViewController.h */,
 				1B5927FC1A9C001900B660BD /* MeViewController.m */,
+				1BA1F6AA1A9C500700176424 /* TFTableViewCell.h */,
+				1BA1F6AB1A9C500700176424 /* TFTableViewCell.m */,
 			);
 			name = TabbarControllers;
 			sourceTree = "<group>";
@@ -177,6 +198,7 @@
 		1B847A3C1A8DDE65009989B6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1BA1F6A81A9C474300176424 /* USC-Campus-Night-PC.jpg */,
 				1B5927F91A9BFBC700B660BD /* icon_plus.png */,
 				1B7377141A8E8E9000444E78 /* first_normal@2x.png */,
 				1B7377171A8E8E9000444E78 /* navigationbar_background_tall.png */,
@@ -193,6 +215,813 @@
 				3F2B9B4E1A8A8B510097AFD5 /* USC_Trojans4.jpg */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		1BA1F6311A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6321A9C453200176424 /* PathCover */,
+				1BA1F6951A9C453200176424 /* Resources */,
+				1BA1F6991A9C453200176424 /* XHPathCover.h */,
+				1BA1F69A1A9C453200176424 /* XHPathCover.m */,
+				1BA1F69D1A9C453200176424 /* XHWaterDropRefresh.h */,
+				1BA1F69E1A9C453200176424 /* XHWaterDropRefresh.m */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6321A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6331A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6331A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6341A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6341A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6351A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6351A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6361A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6361A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6371A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6371A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6381A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6381A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6391A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6391A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F63A1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F63A1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F63B1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F63B1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F63C1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F63C1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F63D1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F63D1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F63E1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F63E1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F63F1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F63F1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6401A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6401A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6411A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6411A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6421A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6421A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6431A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6431A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6441A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6441A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6451A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6451A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6461A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6461A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6471A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6471A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6481A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6481A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6491A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6491A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F64A1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F64A1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F64B1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F64B1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F64C1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F64C1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F64D1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F64D1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F64E1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F64E1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F64F1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F64F1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6501A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6501A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6511A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6511A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6521A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6521A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6531A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6531A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6541A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6541A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6551A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6551A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6561A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6561A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6571A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6571A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6581A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6581A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6591A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6591A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F65A1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F65A1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F65B1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F65B1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F65C1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F65C1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F65D1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F65D1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F65E1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F65E1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F65F1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F65F1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6601A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6601A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6611A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6611A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6621A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6621A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6631A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6631A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6641A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6641A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6651A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6651A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6661A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6661A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6671A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6671A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6681A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6681A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6691A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6691A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F66A1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F66A1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F66B1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F66B1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F66C1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F66C1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F66D1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F66D1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F66E1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F66E1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F66F1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F66F1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6701A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6701A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6711A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6711A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6721A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6721A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6731A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6731A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6741A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6741A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6751A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6751A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6761A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6761A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6771A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6771A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6781A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6781A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6791A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6791A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F67A1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F67A1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F67B1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F67B1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F67C1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F67C1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F67D1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F67D1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F67E1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F67E1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F67F1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F67F1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6801A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6801A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6811A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6811A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6821A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6821A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6831A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6831A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6841A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6841A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6851A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6851A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6861A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6861A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6871A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6871A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6881A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6881A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6891A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6891A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F68A1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F68A1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F68B1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F68B1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F68C1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F68C1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F68D1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F68D1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F68E1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F68E1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F68F1A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F68F1A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6901A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6901A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6911A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6911A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6921A9C453200176424 /* PathCover */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6921A9C453200176424 /* PathCover */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6931A9C453200176424 /* .DS */,
+				1BA1F6941A9C453200176424 /* Pat */,
+			);
+			path = PathCover;
+			sourceTree = "<group>";
+		};
+		1BA1F6941A9C453200176424 /* Pat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pat;
+			sourceTree = "<group>";
+		};
+		1BA1F6951A9C453200176424 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1BA1F6961A9C453200176424 /* circle.png */,
+				1BA1F6971A9C453200176424 /* circle@2x.png */,
+				1BA1F6981A9C453200176424 /* pullrefresh.aif */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		3F30628A1A8A780800FEC85F = {
@@ -216,6 +1045,7 @@
 		3F3062951A8A780800FEC85F /* USCWebReg */ = {
 			isa = PBXGroup;
 			children = (
+				1BA1F6311A9C453200176424 /* PathCover */,
 				1B3D1FCA1A9A60900056B191 /* CourseDetailUI */,
 				1B7377411A8EA8CD00444E78 /* JSDropDownMenu */,
 				1B7377091A8E842B00444E78 /* TabbarControllers */,
@@ -345,14 +1175,19 @@
 				3F3062A21A8A780800FEC85F /* Main.storyboard in Resources */,
 				1B73772E1A8E8E9000444E78 /* navigationbar_background@2x.png in Resources */,
 				1B7377331A8E8E9000444E78 /* tabbar_normal_background.png in Resources */,
+				1BA1F6A21A9C453200176424 /* pullrefresh.aif in Resources */,
 				1B73772B1A8E8E9000444E78 /* navigationbar_background_tall.png in Resources */,
 				1B73772C1A8E8E9000444E78 /* navigationbar_background_tall@2x.png in Resources */,
 				1B7377451A8EA8CD00444E78 /* ico_make.png in Resources */,
 				1B7377381A8E8E9000444E78 /* third_normal@2x.png in Resources */,
+				1BA1F6A01A9C453200176424 /* circle.png in Resources */,
 				1B7377281A8E8E9000444E78 /* first_normal@2x.png in Resources */,
+				1BA1F69F1A9C453200176424 /* .DS in Resources */,
 				1B7377341A8E8E9000444E78 /* tabbar_normal_background@2x.png in Resources */,
 				3F3062BD1A8A7B3800FEC85F /* USC-background.jpg in Resources */,
+				1BA1F6A91A9C474300176424 /* USC-Campus-Night-PC.jpg in Resources */,
 				1B73772D1A8E8E9000444E78 /* navigationbar_background.png in Resources */,
+				1BA1F6A11A9C453200176424 /* circle@2x.png in Resources */,
 				1B5927FA1A9BFBC700B660BD /* icon_plus.png in Resources */,
 				1B7377361A8E8E9000444E78 /* tabbar_selected_background@2x.png in Resources */,
 				3F3062A71A8A780800FEC85F /* LaunchScreen.xib in Resources */,
@@ -380,11 +1215,14 @@
 				3F30629F1A8A780800FEC85F /* ViewController.m in Sources */,
 				1B73770F1A8E845500444E78 /* CourseViewController.m in Sources */,
 				1B5927FD1A9C001900B660BD /* MeViewController.m in Sources */,
+				1BA1F6A31A9C453200176424 /* XHPathCover.m in Sources */,
+				1BA1F6AC1A9C500700176424 /* TFTableViewCell.m in Sources */,
 				1B7377051A8E7D4000444E78 /* RDVTabBarItem.m in Sources */,
 				3F30629C1A8A780800FEC85F /* AppDelegate.m in Sources */,
 				1B7377041A8E7D4000444E78 /* RDVTabBarController.m in Sources */,
 				1B7377121A8E8AE400444E78 /* TabbarController.m in Sources */,
 				1B7377401A8E90C200444E78 /* DetailViewController.m in Sources */,
+				1BA1F6A51A9C453200176424 /* XHWaterDropRefresh.m in Sources */,
 				1B7377031A8E7D4000444E78 /* RDVTabBar.m in Sources */,
 				1BB35AE21A9A9AEF000BB427 /* CourseSectionDetail.m in Sources */,
 				3F3062991A8A780800FEC85F /* main.m in Sources */,
