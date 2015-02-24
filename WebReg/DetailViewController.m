@@ -94,7 +94,7 @@
     // The request is complete and data has been received
     // You can parse the stuff in your instance variable now
     float layoutHeightOffest = 200;
-    
+    float layoutWidthMargin = 10;
     NSError *jsonParsingError = nil;
     NSMutableDictionary *JSONData = [NSJSONSerialization JSONObjectWithData:_responseData options:0 error:&jsonParsingError];
     
@@ -116,10 +116,7 @@
         unit = [[NSString alloc] initWithFormat:@"%.f~%.f Units", min_unit, max_unit];
     }
     
-    CourseDetailHeader *header = [[CourseDetailHeader alloc]initWithFrame:CGRectMake(5,0, self.view.frame.size.width - 10, layoutHeightOffest)
-                                                                withTitle:title
-                                                                 withUnit: unit
-                                                          withDescription: description];
+    CourseDetailHeader *header = [[CourseDetailHeader alloc]initWithFrame:CGRectMake(layoutWidthMargin, 0, self.view.frame.size.width - layoutWidthMargin * 2, layoutHeightOffest) withTitle:title withUnit: unit withDescription: description];
     [_scrollView addSubview:header];
     layoutHeightOffest = header.frame.size.height;
     
@@ -161,7 +158,7 @@
         
         NSString *info = [[NSString alloc] initWithFormat:@"%@\n%@\n%@\n%@\n%@", type, capacity, location, time, instructor];
         
-        CourseSectionDetail* sectionDetail = [[CourseSectionDetail alloc] initWithFrame:CGRectMake(5, 10 + layoutHeightOffest, self.view.frame.size.width - 10, 140) withTitle:sessionid withInfo:info];
+        CourseSectionDetail* sectionDetail = [[CourseSectionDetail alloc] initWithFrame:CGRectMake(layoutWidthMargin, 10 + layoutHeightOffest, self.view.frame.size.width - layoutWidthMargin*2, 140) withTitle:sessionid withInfo:info];
         [_scrollView  addSubview:sectionDetail];
         layoutHeightOffest += 5 + sectionDetail.bounds.size.height;
     }

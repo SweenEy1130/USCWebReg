@@ -277,11 +277,12 @@
     TFTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
         cell = [[TFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        
+        [[cell textLabel] setText:[NSString stringWithFormat:@"%@ %@", [_courseCode objectAtIndex:indexPath.row],
+                                   [_courseTitle objectAtIndex: indexPath.row]]];
+        // [cell.textLabel setFrame:CGRectMake(8, 0, cell.frame.size.width, cell.frame.size.height)];
     }
     
-    [[cell textLabel] setText:[NSString stringWithFormat:@"%@ %@", [_courseCode objectAtIndex:indexPath.row],
-                                   [_courseTitle objectAtIndex: indexPath.row]]];
-    // [cell.textLabel setFrame:CGRectMake(8, 0, cell.frame.size.width, cell.frame.size.height)];
     return cell;
 }
 
@@ -303,7 +304,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        style = UITableViewStylePlain;
+        // style = UITableViewStylePlain;
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     }
     return self;
