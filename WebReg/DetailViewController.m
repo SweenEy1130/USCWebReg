@@ -8,6 +8,8 @@
 
 #import "DetailViewController.h"
 #import "RDVTabBarController.h"
+#import "CourseDetailHeader.h"
+#import "CourseSectionDetail.h"
 
 @interface DetailViewController ()
 
@@ -21,9 +23,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     self.title = @"Details";
-    self.view.backgroundColor = [UIColor colorWithRed:250/255.0 green:250/255.0 blue:250/255.0 alpha:1.0];
+    self.view.backgroundColor = [UIColor colorWithRed:244/255.0 green:244/255.0 blue:244/255.0 alpha:1.0];
+    
+    _scrollView =[[UIScrollView alloc] initWithFrame:CGRectMake(0, 10, self.view.frame.size.width, self.view.frame.size.height - 75)];
+    _scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
+    [self.view addSubview: _scrollView];
     
     NSString * url = [[NSString alloc] initWithFormat:@"http://petri.esd.usc.edu/socAPI/Courses/%ld/%ld", _termCode, _courseID];
     // Create the request.
@@ -87,6 +92,8 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     // The request is complete and data has been received
     // You can parse the stuff in your instance variable now
+    float layoutHeightOffest = 200;
+    
     NSError *jsonParsingError = nil;
     NSMutableDictionary *JSONData = [NSJSONSerialization JSONObjectWithData:_responseData options:0 error:&jsonParsingError];
     
@@ -95,15 +102,69 @@
         return;
     }
     
-    UILabel *label = [[UILabel alloc] init];
-    NSString *arrayString = JSONData[@"DESCRIPTION"];
-    if (arrayString){
-        label.text = arrayString;
+    NSString *description = JSONData[@"DESCRIPTION"];
+    NSString *title = [[NSString alloc]initWithFormat:@"%@\n%@", JSONData[@"SIS_COURSE_ID"], JSONData[@"TITLE"]];
+    NSString *unit;
+    float min_unit = [JSONData[@"MIN_UNITS"] floatValue];
+    float max_unit = [JSONData[@"MAX_UNITS"] floatValue];
+ 
+    if (min_unit == max_unit)
+    {
+        unit = [[NSString alloc] initWithFormat:@"%.f Units", min_unit];
+    }else{
+        unit = [[NSString alloc] initWithFormat:@"%.f~%.f Units", min_unit, max_unit];
     }
-    label.frame = CGRectMake(20, 150, CGRectGetWidth(self.view.frame) - 2 * 20, 20);
-    label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    label.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:label];
+    
+    CourseDetailHeader *header = [[CourseDetailHeader alloc]initWithFrame:CGRectMake(5,0, self.view.frame.size.width - 10, layoutHeightOffest)
+                                                                withTitle:title
+                                                                 withUnit: unit
+                                                          withDescription: description];
+    [_scrollView addSubview:header];
+    layoutHeightOffest = header.frame.size.height;
+    
+    for (NSDictionary *section in [JSONData objectForKey:@"V_SOC_SECTION"]) {
+        NSString * sessionid = [[NSString alloc] initWithFormat:@"Section %@", section[@"SECTION"]];
+        NSString * type;
+        NSString * capacity;
+        
+        if ([section[@"TYPE"] isKindOfClass:[NSNull class]]){
+            type = @"N/A";
+        }else{
+            type = section[@"TYPE"];
+        }
+        if ([section[@"REGISTERED"] isKindOfClass:[NSNull class]]){
+            capacity = [[NSString alloc] initWithFormat:@"0/%ld", (long)[section[@"SEATS"] intValue]];
+        }else{
+            capacity = [[NSString alloc] initWithFormat:@"%ld/%ld", (long)[section[@"REGISTERED"] intValue], (long)[section[@"SEATS"] intValue]];
+        }
+        NSString * location;
+        if ([section[@"LOCATION"] isKindOfClass:[NSNull class]]){
+            location = @"N/A"; //[[NSString alloc] initWithFormat:@"N/A"];
+        }else{
+            location = [[NSString alloc] initWithFormat:@"%@", section[@"LOCATION"]];
+        }
+        
+        NSString *time;
+        if ([section[@"DAY"] isKindOfClass:[NSNull class]]){
+            time = [[NSString alloc] initWithFormat:@"N/A"];
+        }else{
+            time = [[NSString alloc] initWithFormat:@"%@ %@-%@", section[@"DAY"], section[@"BEGIN_TIME"], section[@"END_TIME"]];
+        }
+        
+        NSString *instructor;
+        if ([section[@"INSTRUCTOR"] isKindOfClass:[NSNull class]]){
+            instructor = [[NSString alloc] initWithFormat:@"N/A"];
+        }else{
+            instructor = [[NSString alloc] initWithFormat:@"%@", section[@"INSTRUCTOR"]];
+        }
+        
+        NSString *info = [[NSString alloc] initWithFormat:@"%@\n%@\n%@\n%@\n%@", type, capacity, location, time, instructor];
+        
+        CourseSectionDetail* sectionDetail = [[CourseSectionDetail alloc] initWithFrame:CGRectMake(5, 10 + layoutHeightOffest, self.view.frame.size.width - 10, 140) withTitle:sessionid withInfo:info];
+        [_scrollView  addSubview:sectionDetail];
+        layoutHeightOffest += 5 + sectionDetail.bounds.size.height;
+    }
+    [_scrollView setContentSize: CGSizeMake(self.view.frame.size.width, layoutHeightOffest)];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {

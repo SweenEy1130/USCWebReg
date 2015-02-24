@@ -9,7 +9,7 @@
 #import "TabbarController.h"
 #import "CalendarViewController.h"
 #import "CourseViewController.h"
-#import "DiscoverViewController.h"
+#import "MeViewController.h"
 #import "RDVTabBarItem.h"
 
 @interface TabbarController ()
@@ -29,7 +29,7 @@
     UIViewController *secondNavigationController = [[UINavigationController alloc]
                                                     initWithRootViewController:secondViewController];
     
-    UIViewController *thirdViewController = [[DiscoverViewController alloc] init];
+    UIViewController *thirdViewController = [[MeViewController alloc] init];
     UIViewController *thirdNavigationController = [[UINavigationController alloc]
                                                    initWithRootViewController:thirdViewController];
     
@@ -47,9 +47,9 @@
     NSInteger index = 0;
     for (RDVTabBarItem *item in [[tabBarController tabBar] items]) {
         [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];
-        UIImage *selectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_selected",
+        UIImage *selectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_normal@2x",
                                                       [tabBarItemImages objectAtIndex:index]]];
-        UIImage *unselectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_normal",
+        UIImage *unselectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_normal@2x",
                                                         [tabBarItemImages objectAtIndex:index]]];
         [item setFinishedSelectedImage:selectedimage withFinishedUnselectedImage:unselectedimage];
         
@@ -69,8 +69,6 @@
                        NSFontAttributeName: [UIFont boldSystemFontOfSize:18],
                        NSForegroundColorAttributeName:
                         [UIColor whiteColor],
-                        //  [UIColor colorWithRed:0.514 green:0 blue:0.039 alpha:1] /*#83000a*/,
-                        // [UIColor colorWithRed:0.965 green:0.643 blue:0.082 alpha:1] /*#f6a415*/,
                        };
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     

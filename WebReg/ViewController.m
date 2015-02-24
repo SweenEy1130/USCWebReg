@@ -60,7 +60,7 @@
     //[LoginScroll setContentSize: CGSizeMake(260, 220)];
     NSDictionary* info = [aNotification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
-    NSLog(@"Keyboard height: %f", kbSize.height);
+    // NSLog(@"Keyboard height: %f", kbSize.height);
     UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
     LoginScroll.contentInset = contentInsets;
     LoginScroll.scrollIndicatorInsets = contentInsets;
