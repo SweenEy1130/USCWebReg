@@ -8,8 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CourseViewController : UITableViewController<NSURLConnectionDelegate>{
-    NSMutableData *_responseData;
-}
-
+@interface CourseViewController : UIViewController
 @end

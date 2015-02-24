@@ -10,8 +10,8 @@
 #import "RDVTabBarController.h"
 #import "RDVTabBarItem.h"
 #import "JSDropDownMenu.h"
-#import "DetailViewController.h"
 #import "TFTableViewCell.h"
+#import "TFTableViewController.h"
 
 @interface CourseViewController () <JSDropDownMenuDataSource, JSDropDownMenuDelegate>{
     NSMutableArray *_schoolName;
@@ -25,10 +25,7 @@
     NSInteger _currentDeptIndex;
     NSString *_currentDeptCode;
     
-    NSMutableArray *_courseID;
-    NSMutableArray *_courseCode;
-    NSMutableArray *_courseTitle;
-    int _courseNo;
+    TFTableViewController * tfTableViewController;
 }
 
 @end
@@ -48,7 +45,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
     // Configure dropdown menu
     NSArray *Iovine = @[@"ACAD"];
     NSArray *Leventhal = @[@"ACCT"];
@@ -113,6 +109,20 @@
 
     NSDictionary *menuDic = [_schoolName objectAtIndex:0];
     _currentDeptCode = [[menuDic objectForKey:@"data"] objectAtIndex:0];
+    
+    JSDropDownMenu *menu = [[JSDropDownMenu alloc] initWithOrigin:CGPointMake(0, 0) andHeight:45];
+    menu.indicatorColor = [UIColor colorWithRed:175.0f/255.0f green:175.0f/255.0f blue:175.0f/255.0f alpha:1.0];
+    menu.separatorColor = [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0];
+    menu.textColor = [UIColor colorWithRed:83.f/255.0f green:83.f/255.0f blue:83.f/255.0f alpha:1.0f];
+    menu.dataSource = self;
+    menu.delegate = self;
+    [self.view addSubview:menu];
+    
+    
+    tfTableViewController = [[TFTableViewController alloc] init];
+    tfTableViewController.tableView.frame = CGRectMake(0, 45, self.view.bounds.size.width, self.view.bounds.size.height - 45);
+    [self addChildViewController:tfTableViewController];
+    [self.view addSubview:tfTableViewController.tableView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -120,57 +130,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)getCourseList:(NSString*)term withDept:(NSString*)dept{
-    NSString * url = [[NSString alloc] initWithFormat:@"http://petri.esd.usc.edu/socAPI/Courses/%@/%@", term, dept];
-    // Create the request.
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
-    
-    // Create url connection and fire request
-    // NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
-    NSURLResponse * response = nil;
-    NSError * error = nil;
-    NSData * data = [NSURLConnection sendSynchronousRequest:request
-                                          returningResponse:&response
-                                                      error:&error];
-    
-    if (error == nil)
-    {
-        
-        NSError *jsonParsingError = nil;
-        NSMutableArray *JSONData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
-        
-        if (jsonParsingError) {
-            NSLog(@"JSON ERROR: %@", [jsonParsingError localizedDescription]);
-            return;
-        }
-        _courseNo = 0;
-        _courseTitle = [[NSMutableArray alloc] init];
-        _courseCode = [[NSMutableArray alloc] init];
-        _courseID = [[NSMutableArray alloc] init];
-        
-        for (NSMutableDictionary *dictionary in JSONData)
-        {
-            NSString *courseid = dictionary[@"SIS_COURSE_ID"];
-            int course_level = [[courseid componentsSeparatedByString:@"-"][1] intValue];
-            if (_currentLevelIndex == 1 && course_level >= 400)
-                continue;
-            if (_currentLevelIndex == 2 && course_level < 400)
-                continue;
-            
-            NSString *arrayString = dictionary[@"TITLE"];
-            if (arrayString){
-                [_courseTitle addObject:dictionary[@"TITLE"]];
-                [_courseCode addObject:dictionary[@"SIS_COURSE_ID"]];
-                [_courseID addObject:dictionary[@"COURSE_ID"]];
-                _courseNo++;
-            }
-            
-        }
-        [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
-    }
-}
 
 // Dropdown Menu
 - (NSInteger)numberOfColumnsInMenu:(JSDropDownMenu *)menu {
@@ -281,159 +240,18 @@
             _currentDeptIndex = indexPath.row;
             _currentDeptCode = [[menuDic objectForKey:@"data"] objectAtIndex:_currentDeptIndex];
             if (_currentSchoolIndex)
-                [self getCourseList:_termCode[_currentTermIndex] withDept: _currentDeptCode];
+                [tfTableViewController getCourseList:_termCode[_currentTermIndex] withDept: _currentDeptCode withLevel:_currentLevelIndex];
         }
         
     } else if(indexPath.column == 0){
         _currentTermIndex = indexPath.row;
         if (_currentSchoolIndex)
-            [self getCourseList:_termCode[_currentTermIndex] withDept: _currentDeptCode];
+            [tfTableViewController getCourseList:_termCode[_currentTermIndex] withDept: _currentDeptCode withLevel:_currentLevelIndex];
     } else{
         _currentLevelIndex = indexPath.row;
         if (_currentSchoolIndex)
-            [self getCourseList:_termCode[_currentTermIndex] withDept: _currentDeptCode];
+            [tfTableViewController getCourseList:_termCode[_currentTermIndex] withDept: _currentDeptCode withLevel:_currentLevelIndex];
     }
-}
-
-
-// Table view
-
-- (NSUInteger)supportedInterfaceOrientations {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        return UIInterfaceOrientationMaskAll;
-    } else {
-        return UIInterfaceOrientationMaskPortrait;
-    }
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        return YES;
-    }
-    return toInterfaceOrientation == UIInterfaceOrientationPortrait;
-}
-
-#pragma mark - Table view
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
-    TFTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (!cell) {
-        cell = [[TFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    [[cell textLabel] setText:[NSString stringWithFormat:@"%@ %@", [_courseCode objectAtIndex:indexPath.row],
-                               [_courseTitle objectAtIndex: indexPath.row]]];
-    return cell;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _courseNo;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    DetailViewController *viewController = [[DetailViewController alloc] init];
-    viewController._courseID = [_courseID[indexPath.row] intValue];
-    viewController._termCode = [_termCode[_currentTermIndex] intValue];
-    viewController._courseCode = _courseCode[indexPath.row];
-    [self.navigationController pushViewController:viewController animated:YES];
-}
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // style = UITableViewStylePlain;
-        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    }
-    return self;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    JSDropDownMenu *menu = [[JSDropDownMenu alloc] initWithOrigin:CGPointMake(0, 0) andHeight:45];
-    menu.indicatorColor = [UIColor colorWithRed:175.0f/255.0f green:175.0f/255.0f blue:175.0f/255.0f alpha:1.0];
-    menu.separatorColor = [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0];
-    menu.textColor = [UIColor colorWithRed:83.f/255.0f green:83.f/255.0f blue:83.f/255.0f alpha:1.0f];
-    menu.dataSource = self;
-    menu.delegate = self;
-    
-    return menu;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 45.0f;
-}
-
-#pragma mark NSURLConnection Delegate Methods
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    // A response has been received, this is where we initialize the instance var you created
-    // so that we can append data to it in the didReceiveData method
-    // Furthermore, this method is called each time there is a redirect so reinitializing it
-    // also serves to clear it
-    _responseData = [[NSMutableData alloc] init];
-    NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
-    if (statusCode != 200) {
-        NSLog(@"%s: sendAsynchronousRequest status code != 200: response = %@", __FUNCTION__, response);
-        return;
-    }
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    // Append the new data to the instance variable you declared
-    [_responseData appendData:data];
-}
-
-- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
-                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
-    // Return nil to indicate not necessary to store a cached response for this connection
-    return nil;
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    // The request is complete and data has been received
-    // You can parse the stuff in your instance variable now
-    NSError *jsonParsingError = nil;
-    NSMutableArray *JSONData = [NSJSONSerialization JSONObjectWithData:_responseData options:0 error:&jsonParsingError];
-    
-    if (jsonParsingError) {
-        NSLog(@"JSON ERROR: %@", [jsonParsingError localizedDescription]);
-        return;
-    }
-    _courseNo = 0;
-    _courseTitle = [[NSMutableArray alloc] init];
-    _courseCode = [[NSMutableArray alloc] init];
-    _courseID = [[NSMutableArray alloc] init];
-    
-    for (NSMutableDictionary *dictionary in JSONData)
-    {
-        NSString *courseid = dictionary[@"SIS_COURSE_ID"];
-        int course_level = [[courseid componentsSeparatedByString:@"-"][1] intValue];
-        if (_currentLevelIndex == 1 && course_level >= 400)
-            continue;
-        if (_currentLevelIndex == 2 && course_level < 400)
-            continue;
-        
-        NSString *arrayString = dictionary[@"TITLE"];
-        if (arrayString){
-            [_courseTitle addObject:dictionary[@"TITLE"]];
-            [_courseCode addObject:dictionary[@"SIS_COURSE_ID"]];
-            [_courseID addObject:dictionary[@"COURSE_ID"]];
-            _courseNo++;
-        }
-        
-    }
-    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    // The request has failed for some reason!
-    // Check the error var
 }
 
 @end
