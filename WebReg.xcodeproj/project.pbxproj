@@ -30,6 +30,7 @@
 		1B7377401A8E90C200444E78 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B73773F1A8E90C200444E78 /* DetailViewController.m */; };
 		1B7377451A8EA8CD00444E78 /* ico_make.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B7377421A8EA8CD00444E78 /* ico_make.png */; };
 		1B7377461A8EA8CD00444E78 /* JSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7377441A8EA8CD00444E78 /* JSDropDownMenu.m */; };
+		1B940A8A1A9C808A00967FA6 /* TFTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B940A891A9C808A00967FA6 /* TFTableViewController.m */; };
 		1BA1F6A01A9C453200176424 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA1F6961A9C453200176424 /* circle.png */; };
 		1BA1F6A11A9C453200176424 /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA1F6971A9C453200176424 /* circle@2x.png */; };
 		1BA1F6A21A9C453200176424 /* pullrefresh.aif in Resources */ = {isa = PBXBuildFile; fileRef = 1BA1F6981A9C453200176424 /* pullrefresh.aif */; };
@@ -93,6 +94,8 @@
 		1B7377421A8EA8CD00444E78 /* ico_make.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_make.png; sourceTree = "<group>"; };
 		1B7377431A8EA8CD00444E78 /* JSDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSDropDownMenu.h; sourceTree = "<group>"; };
 		1B7377441A8EA8CD00444E78 /* JSDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDropDownMenu.m; sourceTree = "<group>"; };
+		1B940A881A9C808A00967FA6 /* TFTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFTableViewController.h; sourceTree = "<group>"; };
+		1B940A891A9C808A00967FA6 /* TFTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFTableViewController.m; sourceTree = "<group>"; };
 		1BA1F6961A9C453200176424 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
 		1BA1F6971A9C453200176424 /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle@2x.png"; sourceTree = "<group>"; };
 		1BA1F6981A9C453200176424 /* pullrefresh.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = pullrefresh.aif; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 				1B5927FC1A9C001900B660BD /* MeViewController.m */,
 				1BA1F6AA1A9C500700176424 /* TFTableViewCell.h */,
 				1BA1F6AB1A9C500700176424 /* TFTableViewCell.m */,
+				1B940A881A9C808A00967FA6 /* TFTableViewController.h */,
+				1B940A891A9C808A00967FA6 /* TFTableViewController.m */,
 			);
 			name = TabbarControllers;
 			sourceTree = "<group>";
@@ -428,6 +433,7 @@
 				1B73770F1A8E845500444E78 /* CourseViewController.m in Sources */,
 				1B5927FD1A9C001900B660BD /* MeViewController.m in Sources */,
 				1BA1F6A31A9C453200176424 /* XHPathCover.m in Sources */,
+				1B940A8A1A9C808A00967FA6 /* TFTableViewController.m in Sources */,
 				1BA1F6AC1A9C500700176424 /* TFTableViewCell.m in Sources */,
 				1B7377051A8E7D4000444E78 /* RDVTabBarItem.m in Sources */,
 				3F30629C1A8A780800FEC85F /* AppDelegate.m in Sources */,
