@@ -275,14 +275,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     TFTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
     if (!cell) {
         cell = [[TFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        
-        [[cell textLabel] setText:[NSString stringWithFormat:@"%@ %@", [_courseCode objectAtIndex:indexPath.row],
-                                   [_courseTitle objectAtIndex: indexPath.row]]];
-        // [cell.textLabel setFrame:CGRectMake(8, 0, cell.frame.size.width, cell.frame.size.height)];
     }
-    
+    [[cell textLabel] setText:[NSString stringWithFormat:@"%@ %@", [_courseCode objectAtIndex:indexPath.row],
+                               [_courseTitle objectAtIndex: indexPath.row]]];
     return cell;
 }
 
@@ -364,9 +362,9 @@
         return;
     }
     _courseNo = 0;
-    _courseTitle = [[NSMutableArray alloc] initWithCapacity: _courseNo];
-    _courseCode = [[NSMutableArray alloc] initWithCapacity:_courseNo];
-    _courseID = [[NSMutableArray alloc] initWithCapacity:_courseNo];
+    _courseTitle = [[NSMutableArray alloc] init];
+    _courseCode = [[NSMutableArray alloc] init];
+    _courseID = [[NSMutableArray alloc] init];
     
     for (NSMutableDictionary *dictionary in JSONData)
     {
@@ -378,13 +376,13 @@
             continue;
         
         NSString *arrayString = dictionary[@"TITLE"];
-        if (arrayString)
-        {
+        if (arrayString){
             [_courseTitle addObject:dictionary[@"TITLE"]];
             [_courseCode addObject:dictionary[@"SIS_COURSE_ID"]];
             [_courseID addObject:dictionary[@"COURSE_ID"]];
+            _courseNo++;
         }
-        _courseNo = (int)_courseID.count;
+        
     }
     [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
