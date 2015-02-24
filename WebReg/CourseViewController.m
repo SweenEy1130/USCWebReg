@@ -126,7 +126,50 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
     
     // Create url connection and fire request
-    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    // NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    NSURLResponse * response = nil;
+    NSError * error = nil;
+    NSData * data = [NSURLConnection sendSynchronousRequest:request
+                                          returningResponse:&response
+                                                      error:&error];
+    
+    if (error == nil)
+    {
+        
+        NSError *jsonParsingError = nil;
+        NSMutableArray *JSONData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
+        
+        if (jsonParsingError) {
+            NSLog(@"JSON ERROR: %@", [jsonParsingError localizedDescription]);
+            return;
+        }
+        _courseNo = 0;
+        _courseTitle = [[NSMutableArray alloc] init];
+        _courseCode = [[NSMutableArray alloc] init];
+        _courseID = [[NSMutableArray alloc] init];
+        
+        for (NSMutableDictionary *dictionary in JSONData)
+        {
+            NSString *courseid = dictionary[@"SIS_COURSE_ID"];
+            int course_level = [[courseid componentsSeparatedByString:@"-"][1] intValue];
+            if (_currentLevelIndex == 1 && course_level >= 400)
+                continue;
+            if (_currentLevelIndex == 2 && course_level < 400)
+                continue;
+            
+            NSString *arrayString = dictionary[@"TITLE"];
+            if (arrayString){
+                [_courseTitle addObject:dictionary[@"TITLE"]];
+                [_courseCode addObject:dictionary[@"SIS_COURSE_ID"]];
+                [_courseID addObject:dictionary[@"COURSE_ID"]];
+                _courseNo++;
+            }
+            
+        }
+        [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 // Dropdown Menu
