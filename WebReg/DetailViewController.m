@@ -12,6 +12,9 @@
 #import "CourseSectionDetail.h"
 
 @interface DetailViewController ()
+{
+    UIActivityIndicatorView *activityView;
+}
 
 @end
 
@@ -36,6 +39,11 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
     // Create url connection and fire request
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    activityView=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    activityView.center = CGPointMake(self.view.center.x, self.view.center.y - 50);
+    activityView.color = [UIColor colorWithRed:179.0/255.0 green:0/255.0 blue:6.0/255.0 alpha:1.0];
+    [activityView startAnimating];
+    [self.view addSubview:activityView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -93,6 +101,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     // The request is complete and data has been received
     // You can parse the stuff in your instance variable now
+    [activityView stopAnimating];
     float layoutHeightOffest = 200;
     float layoutWidthMargin = 10;
     NSError *jsonParsingError = nil;

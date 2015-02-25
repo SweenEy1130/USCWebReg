@@ -17,6 +17,8 @@
     int _courseNo;
     NSString * _curTerm;
     NSInteger _curLevelIdx;
+    
+    UIActivityIndicatorView * activityView;
 }
 
 - (void)viewDidLoad
@@ -111,6 +113,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     // The request is complete and data has been received
     // You can parse the stuff in your instance variable now
+    [activityView stopAnimating];
     NSError *jsonParsingError = nil;
     NSMutableArray *JSONData = [NSJSONSerialization JSONObjectWithData:_responseData options:0 error:&jsonParsingError];
     
@@ -160,6 +163,20 @@
     // Create url connection and fire request
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     _curLevelIdx = curLevel;
+    
+    // Clear previous result
+    _courseNo = 0;
+    [self.tableView reloadData];
+    
+    // Add loading indicator
+    if (activityView == nil){
+        activityView=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        activityView.center = CGPointMake(self.view.center.x, self.view.center.y - 50);
+        activityView.color = [UIColor colorWithRed:179.0/255.0 green:0/255.0 blue:6.0/255.0 alpha:1.0];
+    }
+    [activityView startAnimating];
+    [self.view addSubview:activityView];
+
 }
 
 @end
