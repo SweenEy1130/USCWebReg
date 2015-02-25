@@ -83,7 +83,8 @@
     if (!cell) {
         cell = [[TFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         [cell.textLabel setText:_settingEntries[indexPath.row]];
-        [cell.imageView setImage:[UIImage imageNamed:@"icon_plus.png"]];
+        [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"settings@%ld.png", indexPath.row]]];
+        [cell.imageView setFrame:CGRectMake(8, 8, 16, 16)];
     }
     
     return cell;

@@ -27,7 +27,7 @@
 {
     [super layoutSubviews];
     // Makes imageView get placed in the corner
-    // self.imageView.frame = CGRectMake( 8, 7.5, 30, 30 );
+    // self.imageView.frame = CGRectMake( 0, 0, 30, 30 );
     // NSLog(@"%f %f", self.textLabel.frame.origin.x, self.textLabel.frame.size.height);
     // self.textLabel.frame = CGRectMake(46, 0, self.frame.size.width - 46, self.frame.size.height);
 }

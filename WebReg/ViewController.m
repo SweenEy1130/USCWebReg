@@ -12,7 +12,6 @@
 #import "TabbarController.h"
 
 @interface ViewController ()
-
 @end
 
 @implementation ViewController
@@ -20,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [self.LoginButton setBackgroundColor:[UIColor colorWithRed:0.9764 green:0.698 blue:0.0941 alpha:1]];
+    [self.LoginButton setBackgroundColor:[UIColor colorWithRed:179.0/255.0 green:0/255.0 blue:6.0/255.0 alpha:1.0]];
     LoginPassword.secureTextEntry = YES;
     [self registerForKeyboardNotifications];
 }
@@ -34,6 +33,7 @@
 
 - (IBAction)LoginSubmit:(id)sender {
     RDVTabBarController *tabbarController = [[TabbarController alloc] init];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self presentViewController:tabbarController animated:YES completion: nil];
 }
 
@@ -58,20 +58,14 @@
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
     //[LoginScroll setContentSize: CGSizeMake(260, 220)];
-    NSDictionary* info = [aNotification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
-    // NSLog(@"Keyboard height: %f", kbSize.height);
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
-    LoginScroll.contentInset = contentInsets;
-    LoginScroll.scrollIndicatorInsets = contentInsets;
+    // NSDictionary* info = [aNotification userInfo];
+    [LoginScroll setContentOffset:CGPointMake(0.0f, 50) animated:YES];
 }
 
 // Called when the UIKeyboardWillHideNotification is sent
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification
 {
-    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-    LoginScroll.contentInset = contentInsets;
-    LoginScroll.scrollIndicatorInsets = contentInsets;
+    [LoginScroll setContentOffset:CGPointMake(0.0f, 0.0f) animated:YES];
 }
 
 @end
