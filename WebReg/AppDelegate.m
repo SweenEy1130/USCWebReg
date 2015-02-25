@@ -35,6 +35,14 @@
         [[NSUserDefaults standardUserDefaults] setObject:notificationTitles forKey:@"notificationTitles"];
         [[NSUserDefaults standardUserDefaults] setObject:notificationDescriptions forKey:@"notificationDescriptions"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        NSArray *mycourseTitle = [NSArray arrayWithObjects: @"CSCI-571", @"CSCI-555", @"CSCI-561",nil];
+        NSArray *mycourseDesc = [NSArray arrayWithObjects: @"TH 19:00-20:20", @"M 14:00-16:50", @"TH 17:00-18.20",nil];
+
+        [[NSUserDefaults standardUserDefaults] setObject:mycourseTitle forKey:@"mycourseTitle"];
+        [[NSUserDefaults standardUserDefaults] setObject:mycourseDesc forKey:@"mycourseDesc"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+
     }
     return YES;
 }

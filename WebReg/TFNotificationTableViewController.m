@@ -10,7 +10,7 @@
 #import "TFNotificationTableViewController.h"
 #import "RDVTabBarController.h"
 
-@interface TFNotificationTableViewController () <MCSwipeTableViewCellDelegate, UIAlertViewDelegate>
+@interface TFNotificationTableViewController () <MCSwipeTableViewCellDelegate>
 
 @property (nonatomic, strong) NSMutableArray *notificationTitles;
 @property (nonatomic, strong) NSMutableArray *notificationDescriptions;
@@ -26,11 +26,11 @@
     self = [super initWithStyle:style];
     if (self) {
         _nbItems =[[[NSUserDefaults standardUserDefaults] objectForKey:@"notificationTitles"] count];
-        self.notificationTitles = [[NSMutableArray alloc] initWithCapacity:_nbItems];
-        self.notificationDescriptions = [[NSMutableArray alloc] initWithCapacity:_nbItems];
+        _notificationTitles = [[NSMutableArray alloc] initWithCapacity:_nbItems];
+        _notificationDescriptions = [[NSMutableArray alloc] initWithCapacity:_nbItems];
 
-        [self.notificationTitles  addObjectsFromArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"notificationTitles"]];
-        [self.notificationDescriptions addObjectsFromArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"notificationDescriptions"]];
+        [_notificationTitles  addObjectsFromArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"notificationTitles"]];
+        [_notificationDescriptions addObjectsFromArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"notificationDescriptions"]];
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
@@ -97,13 +97,13 @@
     
     [cell setDelegate:self];
     
-    [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"settings@0.png"]]];
-    [cell.imageView setFrame:CGRectMake(8, 8, 10, 10)];
+    // [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"settings@4.png"]]];
+    // [cell.imageView setFrame:CGRectMake(8, 8, 10, 10)];
 
-    [cell.textLabel setText: [self.notificationTitles objectAtIndex:indexPath.row]];
+    [cell.textLabel setText: [_notificationTitles objectAtIndex:indexPath.row]];
     [cell.textLabel setTextColor:[UIColor colorWithRed:179.0/255.0 green:0/255.0 blue:6.0/255.0 alpha:1.0]];
 
-    [cell.detailTextLabel setText: [self.notificationDescriptions objectAtIndex:indexPath.row]];
+    [cell.detailTextLabel setText: [_notificationDescriptions objectAtIndex:indexPath.row]];
     [cell.detailTextLabel setFont: [UIFont systemFontOfSize:14.0]];
     [cell.detailTextLabel setTextColor:[UIColor colorWithRed:63.0/255.0 green:59/255.0 blue:59/255.0 alpha:1.0]];
     
@@ -152,10 +152,10 @@
     _nbItems--;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
 
-    [self.notificationTitles removeObjectAtIndex:indexPath.row];
-    [self.notificationDescriptions removeObjectAtIndex:indexPath.row];
-    [[NSUserDefaults standardUserDefaults] setObject:self.notificationTitles forKey:@"notificationTitles"];
-    [[NSUserDefaults standardUserDefaults] setObject:self.notificationDescriptions forKey:@"notificationDescriptions"];
+    [_notificationTitles removeObjectAtIndex:indexPath.row];
+    [_notificationDescriptions removeObjectAtIndex:indexPath.row];
+    [[NSUserDefaults standardUserDefaults] setObject:_notificationTitles forKey:@"notificationTitles"];
+    [[NSUserDefaults standardUserDefaults] setObject:_notificationDescriptions forKey:@"notificationDescriptions"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];

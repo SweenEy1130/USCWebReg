@@ -13,6 +13,7 @@
 #import "MCSwipeTableViewCell.h"
 #import "ViewController.h"
 #import "TFNotificationTableViewController.h"
+#import "TFCourseTableViewController.h"
 #import "MLPAccessoryBadge.h"
 
 @interface MeViewController ()
@@ -121,6 +122,10 @@
     if (indexPath.row == 0){
         // Notification
         TFNotificationTableViewController *viewController = [[TFNotificationTableViewController alloc] initWithStyle:UITableViewStylePlain];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }else if (indexPath.row == 1){
+        // My course
+        TFCourseTableViewController *viewController = [[TFCourseTableViewController alloc] initWithStyle:UITableViewStylePlain];
         [self.navigationController pushViewController:viewController animated:YES];
     }else if (indexPath.row == 3){
         // Logout button

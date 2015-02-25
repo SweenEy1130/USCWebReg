@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B1B292B1A9E683B00EAF686 /* settings@0.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B1B292A1A9E683B00EAF686 /* settings@0.png */; };
+		1B1B292E1A9E6A7900EAF686 /* TFCourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1B292D1A9E6A7900EAF686 /* TFCourseTableViewController.m */; };
 		1B3D1FCD1A9A60BA0056B191 /* CourseDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3D1FCC1A9A60BA0056B191 /* CourseDetailHeader.m */; };
 		1B424ADC1A9D2785008C6428 /* first_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B424AD31A9D2785008C6428 /* first_normal@2x.png */; };
 		1B424ADD1A9D2785008C6428 /* icon_plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B424AD41A9D2785008C6428 /* icon_plus.png */; };
 		1B424ADE1A9D2785008C6428 /* USCholar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B424AD51A9D2785008C6428 /* USCholar.png */; };
 		1B424ADF1A9D2785008C6428 /* settings@3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B424AD61A9D2785008C6428 /* settings@3.png */; };
 		1B424AE01A9D2785008C6428 /* settings@1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B424AD71A9D2785008C6428 /* settings@1.png */; };
-		1B424AE11A9D2785008C6428 /* settings@0.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B424AD81A9D2785008C6428 /* settings@0.png */; };
+		1B424AE11A9D2785008C6428 /* settings@5.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B424AD81A9D2785008C6428 /* settings@5.png */; };
 		1B424AE21A9D2785008C6428 /* settings@2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B424AD91A9D2785008C6428 /* settings@2.png */; };
 		1B424AE31A9D2785008C6428 /* second_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B424ADA1A9D2785008C6428 /* second_normal@2x.png */; };
 		1B424AE41A9D2785008C6428 /* third_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B424ADB1A9D2785008C6428 /* third_normal@2x.png */; };
@@ -67,6 +69,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B1B292A1A9E683B00EAF686 /* settings@0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@0.png"; path = "Images.xcassets/settings@0.png"; sourceTree = "<group>"; };
+		1B1B292C1A9E6A7900EAF686 /* TFCourseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFCourseTableViewController.h; sourceTree = "<group>"; };
+		1B1B292D1A9E6A7900EAF686 /* TFCourseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFCourseTableViewController.m; sourceTree = "<group>"; };
 		1B3D1FCB1A9A60BA0056B191 /* CourseDetailHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDetailHeader.h; sourceTree = "<group>"; };
 		1B3D1FCC1A9A60BA0056B191 /* CourseDetailHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDetailHeader.m; sourceTree = "<group>"; };
 		1B424AD31A9D2785008C6428 /* first_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "first_normal@2x.png"; path = "Images.xcassets/first_normal@2x.png"; sourceTree = "<group>"; };
@@ -74,7 +79,7 @@
 		1B424AD51A9D2785008C6428 /* USCholar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = USCholar.png; path = Images.xcassets/USCholar.png; sourceTree = "<group>"; };
 		1B424AD61A9D2785008C6428 /* settings@3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@3.png"; path = "Images.xcassets/settings@3.png"; sourceTree = "<group>"; };
 		1B424AD71A9D2785008C6428 /* settings@1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@1.png"; path = "Images.xcassets/settings@1.png"; sourceTree = "<group>"; };
-		1B424AD81A9D2785008C6428 /* settings@0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@0.png"; path = "Images.xcassets/settings@0.png"; sourceTree = "<group>"; };
+		1B424AD81A9D2785008C6428 /* settings@5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@5.png"; path = "Images.xcassets/settings@5.png"; sourceTree = "<group>"; };
 		1B424AD91A9D2785008C6428 /* settings@2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@2.png"; path = "Images.xcassets/settings@2.png"; sourceTree = "<group>"; };
 		1B424ADA1A9D2785008C6428 /* second_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "second_normal@2x.png"; path = "Images.xcassets/second_normal@2x.png"; sourceTree = "<group>"; };
 		1B424ADB1A9D2785008C6428 /* third_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "third_normal@2x.png"; path = "Images.xcassets/third_normal@2x.png"; sourceTree = "<group>"; };
@@ -199,6 +204,8 @@
 				1B940A891A9C808A00967FA6 /* TFTableViewController.m */,
 				1BD3EC901A9DC9AF00D08A6B /* TFNotificationTableViewController.h */,
 				1BD3EC911A9DC9AF00D08A6B /* TFNotificationTableViewController.m */,
+				1B1B292C1A9E6A7900EAF686 /* TFCourseTableViewController.h */,
+				1B1B292D1A9E6A7900EAF686 /* TFCourseTableViewController.m */,
 			);
 			name = TabbarControllers;
 			sourceTree = "<group>";
@@ -216,12 +223,13 @@
 		1B847A3C1A8DDE65009989B6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1B1B292A1A9E683B00EAF686 /* settings@0.png */,
 				1B424AD31A9D2785008C6428 /* first_normal@2x.png */,
 				1B424AD41A9D2785008C6428 /* icon_plus.png */,
 				1B424AD51A9D2785008C6428 /* USCholar.png */,
 				1B424AD61A9D2785008C6428 /* settings@3.png */,
 				1B424AD71A9D2785008C6428 /* settings@1.png */,
-				1B424AD81A9D2785008C6428 /* settings@0.png */,
+				1B424AD81A9D2785008C6428 /* settings@5.png */,
 				1B424AD91A9D2785008C6428 /* settings@2.png */,
 				1B424ADA1A9D2785008C6428 /* second_normal@2x.png */,
 				1B424ADB1A9D2785008C6428 /* third_normal@2x.png */,
@@ -423,6 +431,7 @@
 				3F3062A21A8A780800FEC85F /* Main.storyboard in Resources */,
 				1B73772E1A8E8E9000444E78 /* navigationbar_background@2x.png in Resources */,
 				1B424AE41A9D2785008C6428 /* third_normal@2x.png in Resources */,
+				1B1B292B1A9E683B00EAF686 /* settings@0.png in Resources */,
 				1B7377331A8E8E9000444E78 /* tabbar_normal_background.png in Resources */,
 				1BA1F6A21A9C453200176424 /* pullrefresh.aif in Resources */,
 				1B73772B1A8E8E9000444E78 /* navigationbar_background_tall.png in Resources */,
@@ -434,7 +443,7 @@
 				1B424ADE1A9D2785008C6428 /* USCholar.png in Resources */,
 				1B424AE31A9D2785008C6428 /* second_normal@2x.png in Resources */,
 				3F3062BD1A8A7B3800FEC85F /* USC-background.jpg in Resources */,
-				1B424AE11A9D2785008C6428 /* settings@0.png in Resources */,
+				1B424AE11A9D2785008C6428 /* settings@5.png in Resources */,
 				1BA1F6A91A9C474300176424 /* USC-Campus-Night-PC.jpg in Resources */,
 				1B73772D1A8E8E9000444E78 /* navigationbar_background.png in Resources */,
 				1BA1F6A11A9C453200176424 /* circle@2x.png in Resources */,
@@ -468,6 +477,7 @@
 				1BD3EC921A9DC9AF00D08A6B /* TFNotificationTableViewController.m in Sources */,
 				1B5927FD1A9C001900B660BD /* MeViewController.m in Sources */,
 				1BA1F6A31A9C453200176424 /* XHPathCover.m in Sources */,
+				1B1B292E1A9E6A7900EAF686 /* TFCourseTableViewController.m in Sources */,
 				1B940A8A1A9C808A00967FA6 /* TFTableViewController.m in Sources */,
 				1BDA0D031A9E57C00032757F /* MLPAccessoryBadge.m in Sources */,
 				1B7377051A8E7D4000444E78 /* RDVTabBarItem.m in Sources */,
