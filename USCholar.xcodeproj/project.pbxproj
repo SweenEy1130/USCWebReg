@@ -117,7 +117,7 @@
 		1BA1F6AB1A9C500700176424 /* TFTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFTableViewCell.m; sourceTree = "<group>"; };
 		1BB35AE01A9A9AEF000BB427 /* CourseSectionDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseSectionDetail.h; sourceTree = "<group>"; };
 		1BB35AE11A9A9AEF000BB427 /* CourseSectionDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseSectionDetail.m; sourceTree = "<group>"; };
-		3F3062931A8A780800FEC85F /* WebReg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebReg.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F3062931A8A780800FEC85F /* USCholar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = USCholar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F3062971A8A780800FEC85F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F3062981A8A780800FEC85F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3F30629A1A8A780800FEC85F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 		3F3062A11A8A780800FEC85F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F3062A31A8A780800FEC85F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3F3062A61A8A780800FEC85F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		3F3062AC1A8A780800FEC85F /* WebRegTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebRegTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F3062AC1A8A780800FEC85F /* USCholarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = USCholarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F3062B11A8A780800FEC85F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F3062B21A8A780800FEC85F /* WebRegTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebRegTests.m; sourceTree = "<group>"; };
 		3F3062BC1A8A7B3800FEC85F /* USC-background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "USC-background.jpg"; sourceTree = "<group>"; };
@@ -266,8 +266,8 @@
 		3F3062941A8A780800FEC85F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3F3062931A8A780800FEC85F /* WebReg.app */,
-				3F3062AC1A8A780800FEC85F /* WebRegTests.xctest */,
+				3F3062931A8A780800FEC85F /* USCholar.app */,
+				3F3062AC1A8A780800FEC85F /* USCholarTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -324,9 +324,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3F3062921A8A780800FEC85F /* WebReg */ = {
+		3F3062921A8A780800FEC85F /* USCholar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3F3062B61A8A780800FEC85F /* Build configuration list for PBXNativeTarget "WebReg" */;
+			buildConfigurationList = 3F3062B61A8A780800FEC85F /* Build configuration list for PBXNativeTarget "USCholar" */;
 			buildPhases = (
 				3F30628F1A8A780800FEC85F /* Sources */,
 				3F3062901A8A780800FEC85F /* Frameworks */,
@@ -336,14 +336,14 @@
 			);
 			dependencies = (
 			);
-			name = WebReg;
+			name = USCholar;
 			productName = WebReg;
-			productReference = 3F3062931A8A780800FEC85F /* WebReg.app */;
+			productReference = 3F3062931A8A780800FEC85F /* USCholar.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3F3062AB1A8A780800FEC85F /* WebRegTests */ = {
+		3F3062AB1A8A780800FEC85F /* USCholarTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3F3062B91A8A780800FEC85F /* Build configuration list for PBXNativeTarget "WebRegTests" */;
+			buildConfigurationList = 3F3062B91A8A780800FEC85F /* Build configuration list for PBXNativeTarget "USCholarTests" */;
 			buildPhases = (
 				3F3062A81A8A780800FEC85F /* Sources */,
 				3F3062A91A8A780800FEC85F /* Frameworks */,
@@ -354,9 +354,9 @@
 			dependencies = (
 				3F3062AE1A8A780800FEC85F /* PBXTargetDependency */,
 			);
-			name = WebRegTests;
+			name = USCholarTests;
 			productName = WebRegTests;
-			productReference = 3F3062AC1A8A780800FEC85F /* WebRegTests.xctest */;
+			productReference = 3F3062AC1A8A780800FEC85F /* USCholarTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -370,7 +370,6 @@
 				TargetAttributes = {
 					3F3062921A8A780800FEC85F = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = KS9FZQ3KTT;
 					};
 					3F3062AB1A8A780800FEC85F = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -378,7 +377,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3F30628E1A8A780800FEC85F /* Build configuration list for PBXProject "WebReg" */;
+			buildConfigurationList = 3F30628E1A8A780800FEC85F /* Build configuration list for PBXProject "USCholar" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -391,8 +390,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3F3062921A8A780800FEC85F /* WebReg */,
-				3F3062AB1A8A780800FEC85F /* WebRegTests */,
+				3F3062921A8A780800FEC85F /* USCholar */,
+				3F3062AB1A8A780800FEC85F /* USCholarTests */,
 			);
 		};
 /* End PBXProject section */
@@ -479,7 +478,7 @@
 /* Begin PBXTargetDependency section */
 		3F3062AE1A8A780800FEC85F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3F3062921A8A780800FEC85F /* WebReg */;
+			target = 3F3062921A8A780800FEC85F /* USCholar */;
 			targetProxy = 3F3062AD1A8A780800FEC85F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -589,7 +588,7 @@
 				INFOPLIST_FILE = WebReg/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = WebReg;
+				PRODUCT_NAME = USCholar;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -603,7 +602,7 @@
 				INFOPLIST_FILE = WebReg/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = WebReg;
+				PRODUCT_NAME = USCholar;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -622,8 +621,8 @@
 				);
 				INFOPLIST_FILE = WebRegTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = WebRegTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WebReg.app/WebReg";
+				PRODUCT_NAME = USCholarTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/USCholar.app/USCholar";
 			};
 			name = Debug;
 		};
@@ -637,15 +636,15 @@
 				);
 				INFOPLIST_FILE = WebRegTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = WebRegTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WebReg.app/WebReg";
+				PRODUCT_NAME = USCholarTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/USCholar.app/USCholar";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3F30628E1A8A780800FEC85F /* Build configuration list for PBXProject "WebReg" */ = {
+		3F30628E1A8A780800FEC85F /* Build configuration list for PBXProject "USCholar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3F3062B41A8A780800FEC85F /* Debug */,
@@ -654,7 +653,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3F3062B61A8A780800FEC85F /* Build configuration list for PBXNativeTarget "WebReg" */ = {
+		3F3062B61A8A780800FEC85F /* Build configuration list for PBXNativeTarget "USCholar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3F3062B71A8A780800FEC85F /* Debug */,
@@ -663,7 +662,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3F3062B91A8A780800FEC85F /* Build configuration list for PBXNativeTarget "WebRegTests" */ = {
+		3F3062B91A8A780800FEC85F /* Build configuration list for PBXNativeTarget "USCholarTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3F3062BA1A8A780800FEC85F /* Debug */,
