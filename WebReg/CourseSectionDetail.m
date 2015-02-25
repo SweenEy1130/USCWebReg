@@ -8,7 +8,9 @@
 
 #import "CourseSectionDetail.h"
 
-@implementation CourseSectionDetail
+@implementation CourseSectionDetail{
+    NSString * courseTitle;
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -23,10 +25,11 @@
     if (self) {
         [self setBackgroundColor:[UIColor whiteColor]];
         float tHeight = 0;
+        UIColor *red = [UIColor colorWithRed:179.0/255.0 green:0/255.0 blue:6.0/255.0 alpha:1.0];
         UITextView *sectionidField = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 30)];
         [sectionidField setFont:[UIFont fontWithName:@"Helvetica" size:18]];
         [sectionidField setText:title];
-        [sectionidField setTextColor:[UIColor colorWithRed:179.0/255.0 green:0/255.0 blue:6.0/255.0 alpha:1.0]];
+        [sectionidField setTextColor:red];
         [sectionidField setBackgroundColor:[UIColor clearColor]];
         sectionidField.editable = NO;
         sectionidField.scrollEnabled = NO;
@@ -35,10 +38,15 @@
         [self addSubview:sectionidField];
         tHeight += sectionidField.bounds.size.height;
         
-        UIImageView *addIcon = [[UIImageView alloc] initWithFrame:CGRectMake(self.bounds.size.width-35, 8, sectionidField.bounds.size.height-16, sectionidField.bounds.size.height-16)];
-        addIcon.image = [UIImage imageNamed:@"icon_plus"];
-        addIcon.contentMode = UIViewContentModeScaleAspectFit;
-        [self addSubview:addIcon];
+        courseTitle = title;
+        UIButton *plusBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        plusBtn.frame = CGRectMake(self.bounds.size.width-35, 8, sectionidField.bounds.size.height-16, sectionidField.bounds.size.height-16);
+        UIImage *plusImage = [UIImage imageNamed:@"icon_plus"];
+        [plusBtn setImage:plusImage forState:UIControlStateNormal];
+        [plusBtn setTintColor:red];
+        [self addSubview:plusBtn];
+        [plusBtn addTarget:self action:@selector(alertConfirmationDialog) forControlEvents:UIControlEventTouchUpInside];
+
         
         UITextView *infoField;
         UITextView *infoHeaderField;
@@ -74,6 +82,30 @@
         [self setBackgroundColor:[UIColor whiteColor]];
     }
     return self;
+}
+
+- (void)alertConfirmationDialog{
+    NSString * info = [NSString stringWithFormat:@"Are you sure to add %@?", courseTitle];
+    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Confirmation"
+                                                     message:info
+                                                    delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                                    otherButtonTitles: nil];
+    [alert addButtonWithTitle:@"Yes"];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"Button Index =%ld",buttonIndex);
+    if (buttonIndex == 1)
+    {
+        // NSLog(@"You have clicked Yes");
+    }
+    else if(buttonIndex == 0)
+    {
+        // NSLog(@"You have clicked Cancel");
+    }
 }
 
 @end

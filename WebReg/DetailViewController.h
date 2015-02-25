@@ -13,6 +13,7 @@
     NSMutableData *_responseData;
     UIScrollView * _scrollView;
 }
+
 @property (nonatomic, assign) NSInteger _courseID;
 @property (nonatomic, assign) NSString *_courseCode;
 @property (nonatomic, assign) NSInteger _termCode;

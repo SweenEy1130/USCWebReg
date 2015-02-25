@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "MeViewController.h"
+#import "RDVTabBarController.h"
+#import "TabbarController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -18,6 +21,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+    
+    if ([[NSUserDefaults standardUserDefaults] stringForKey:@"Username"] != nil){
+        RDVTabBarController *tabbarController = [[TabbarController alloc] init];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        
+        [self.window setRootViewController:tabbarController];
+    }
     return YES;
 }
 

@@ -32,6 +32,10 @@
 }
 
 - (IBAction)LoginSubmit:(id)sender {
+    NSString *valueToSave = LoginUsername.text;
+    [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:@"Username"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     RDVTabBarController *tabbarController = [[TabbarController alloc] init];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self presentViewController:tabbarController animated:YES completion: nil];

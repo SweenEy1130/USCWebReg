@@ -10,7 +10,7 @@
 #import "RDVTabBarController.h"
 #import "XHPathCover.h"
 #import "TFTableViewCell.h"
-
+#import "ViewController.h"
 @interface MeViewController ()
 {
     NSMutableArray *_settingEntries;
@@ -38,7 +38,8 @@
     
     [_pathCover setBackgroundImage:[UIImage imageNamed:@"USC-Campus-Night-PC.jpg"]];
     [_pathCover setAvatarImage:[UIImage imageWithData:imageData]];
-    [_pathCover setInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"Zheng", XHUserNameKey, @"1991-11-30", XHBirthdayKey, nil]];
+    [_pathCover setInfo:[NSDictionary dictionaryWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults]
+                                                                            stringForKey:@"Username"], XHUserNameKey, @"Fight on! Trojan!", XHBirthdayKey, nil]];
     self.tableView.tableHeaderView = self.pathCover;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 
@@ -83,11 +84,26 @@
     if (!cell) {
         cell = [[TFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         [cell.textLabel setText:_settingEntries[indexPath.row]];
-        [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"settings@%ld.png", indexPath.row]]];
+        [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"settings@%ld.png", (long)indexPath.row]]];
         [cell.imageView setFrame:CGRectMake(8, 8, 16, 16)];
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    // Logout button
+    if (indexPath.row == 3){
+        NSString *domainName = [[NSBundle mainBundle] bundleIdentifier];
+        [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:domainName];
+        
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ViewController *add = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        
+        [self presentViewController:add animated:YES completion:nil];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

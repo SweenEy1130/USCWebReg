@@ -71,32 +71,58 @@
     NSArray *SocialWork = @[ @"SOWK", ];
     NSArray *DramaticArts = @[ @"THTR", ];
     NSArray *school = @[@"Department"];
+    
+    NSArray *IovineDesc = @[ @"Arts, Technology and the Business of Innovation", ];
+    NSArray *LeventhalDesc = @[ @"Accounting", ];
+    NSArray *AnnenbergDesc = @[ @"Communication and Journalism", @"Communication Management", @"Public Diplomacy", @"Journalism", @"Communication", ];
+    NSArray *ArchitectureDesc = @[ @"Architecture", ];
+    NSArray *MarshallDesc = @[ @"Business Entrepreneurship", @"Business Administration", @"Business Communication", @"Data Sciences and Operations", @"Management and Organization", @"Graduate School of Business Administration", @"Library and Information Management", @"Marketing", @"Finance and Business Economics", ];
+    NSArray *CinematicDesc = @[ @"Motion Picture Producing", @"Cinematic Arts", @"Animation", @"Media Arts and Practice", @"Interactive Media", @"Production", @"Writing", @"Critical Studies", ];
+    NSArray *KaufmanDesc = @[ @"Dance", ];
+    NSArray *OstrowDesc = @[ @"Advanced Dental Education Conjoint Program", @"Periodontics", @"Dentistry", @"Craniofacial Biology", @"Dental Biochemistry", @"Dentistry History", @"Dental Hygiene", @"Oral Diagnosis and Radiology", @"Dental Problem Based Learning", @"DPHR", @"Geriatric Dentistry", @"Occlusion", @"Orofacial Pain and Oral Medicine", @"Oral Medicine Oral Diagnosis", @"Pediatric Dentistry", @"Anatomy", ];
+    NSArray *PhysicalDesc = @[ @"Physical Therapy", @"Biokinesiology", ];
+    NSArray *RossierDesc = @[ @"Education Counseling", @"Education", @"Higher and Postsecondary Education", ];
+    NSArray *ViterbiDesc = @[ @"Aerospace and Mechanical Engineering", @"Systems Architecting and Engineering", @"Biomedical Engineering", @"Chemical Engineering", @"Civil Engineering", @"Computer Science", @"Electrical Engineering", @"Environmental Engineering", @"Engineering", @"Industrial and Systems Engineering", @"Informatics", @"Information Technology Program", @"Materials Science", @"Petroleum Engineering", @"Astronautical Engineering", ];
+    NSArray *RoskiDesc = @[ @"Fine Arts", @"Ceramics", @"Critical Studies", @"Design", @"Drawing", @"Public Art Studies", @"Photography", @"Painting", @"Printmaking", @"Sculpture", @"Intermedia", ];
+    NSArray *GeneralDesc = @[ @"Category I: Western Cultures and Traditions", @"Category II: Global Cultures and Traditions", @"Category VI: Social Issues", @"Category IV: Science and Its Significance", @"Category V: Arts and Letters", @"Category III: Scientific Inquiry", ];
+    NSArray *GerontologyDesc = @[ @"Gerontology", ];
+    NSArray *GraduateDesc = @[ @"Graduate Studies", ];
+    NSArray *DornsifeDesc = @[ @"Art History", @"Writing", @"American Studies and Ethnicity", @"Anthropology", @"Astronomy", @"Biological Sciences", @"Chemistry", @"Classics", @"Comparative Literature", @"Thematic Option", @"Comparative Studies in Literature and Culture", @"East Asian Languages and Cultures", @"East Asian Studies", @"Economics", @"English", @"Environmental Studies Program", @"Kinesiology", @"French", @"Freshman Seminars", @"Geography", @"Geological Sciences", @"German", @"Gender Studies", @"Greek", @"Hebrew", @"History", @"Human Biology", @"Interdisciplinary Major Program", @"International Relations", @"Italian", @"Judaic Studies", @"Latin", @"Liberal Studies", @"Linguistics", @"Mathematics", @"Multidisciplinary Activities", @"Middle East Studies", @"Master of Professional Writing", @"Neuroscience", @"Neuroscience - Graduate", @"Ocean Sciences", @"Political Economy and Public Policy", @"Physical Education", @"Philosophy", @"Physics", @"Political Science and International Relations", @"Portuguese", @"Political Science", @"Psychology", @"Religion", @"Slavic Languages and Literatures", @"Sociology", @"Spanish", @"Spatial Sciences", @"Sophomore Seminar", @"University of Southern California", @"American Language Institute", ];
+    NSArray *LawDesc = @[ @"Law", ];
+    NSArray *KeckDesc = @[ @"Academic Medicine", @"Stem Cell Biology and Regenerative Medicine", @"Biochemistry", @"Cancer Biology & Genomics", @"Cell and Neurobiology", @"Development, Stem Cells and Regenerative Medicine", @"Health Promotion and Disease Prevention Studies", @"Interdepartmental", @"Medicine", @"Medical Biology", @"Medical Sciences", @"Molecular Microbiology and Immunology", @"Molecular Structure & Signaling", @"Pathology", @"Physiology and Biophysics", @"Preventive Medicine", @"Primary Care Physician Assistant", @"Anesthesiology", ];
+    NSArray *ThorntonDesc = @[ @"Arts Leadership", @"Music", @"Sacred Music", @"Choral Music", @"Composition", @"Conducting", @"Music Education", @"Music Ensemble", @"Music History and Literature", @"Music Industry", @"Jazz Studies", @"Performance (Early Music)", @"Performance (Guitar)", @"Performance (Keyboard Studies)", @"Performance (Popular Music)", @"Performance (Strings)", @"Performance (Vocal Arts)", @"Performance (Winds and Percussion)", @"Music Technology", ];
+    NSArray *OccupationalDesc = @[ @"Occupational Science and Occupational Therapy", ];
+    NSArray *PharmacyDesc = @[ @"Healthcare Decision Analysis", @"Molecular Pharmacology and Toxicology", @"Regulatory Science", @"Pharmaceutical Economics and Policy", @"Pharmaceutical Sciences", @"Pharmacy", ];
+    NSArray *PriceDesc = @[ @"Health Care Management", @"Military Science", @"Nautical Science", @"Real Estate Development", @"Policy, Planning and Development", @"Policy, Planning and Development Expanded", @"Urban and Regional Planning", @"Naval Science", ];
+    NSArray *SocialDesc = @[ @"Social Work", ];
+    NSArray *DramaticDesc = @[ @"Dramatic Arts", ];
+    NSArray *schoolDesc = @[@""];
     _schoolName = [NSMutableArray arrayWithObjects:
-                   @{@"title":@"School", @"data":school},
-                   @{@"title":@"Iovine", @"data":Iovine},
-                   @{@"title":@"Leventhal", @"data":Leventhal},
-                   @{@"title":@"Annenberg", @"data":Annenberg},
-                   @{@"title":@"Architecture", @"data":Architecture},
-                   @{@"title":@"Marshall", @"data":Marshall},
-                   @{@"title":@"Cinema", @"data":Cinema},
-                   @{@"title":@"Kaufman", @"data":Kaufman},
-                   @{@"title":@"Ostrow", @"data":Ostrow},
-                   @{@"title":@"PhyTherapy", @"data":PhysicalTherapy},
-                   @{@"title":@"Rossier", @"data":Rossier},
-                   @{@"title":@"Viterbi", @"data":Viterbi},
-                   @{@"title":@"Roski", @"data":Roski},
-                   @{@"title":@"GeneralEdu", @"data":GeneralEdu},
-                   @{@"title":@"Gerontology", @"data":Gerontology},
-                   @{@"title":@"GradStudies", @"data":GraduateStudies},
-                   @{@"title":@"Dornsife", @"data":Dornsife},
-                   @{@"title":@"Law", @"data":Law},
-                   @{@"title":@"Keck", @"data": Keck},
-                   @{@"title":@"Thornton", @"data":Thornton},
-                   @{@"title":@"OT", @"data":OccupationalScience},
-                   @{@"title":@"Pharmacy", @"data":Pharmacy},
-                   @{@"title":@"Price", @"data":Price},
-                   @{@"title":@"SocialWork", @"data":SocialWork},
-                   @{@"title":@"DramaticArts", @"data":DramaticArts},
+                   @{@"title":@"School", @"data":school, @"desc":schoolDesc},
+                   @{@"title":@"Iovine", @"data":Iovine, @"desc":IovineDesc},
+                   @{@"title":@"Leventhal", @"data":Leventhal, @"desc":LeventhalDesc},
+                   @{@"title":@"Annenberg", @"data":Annenberg, @"desc":AnnenbergDesc},
+                   @{@"title":@"Architecture", @"data":Architecture, @"desc":ArchitectureDesc},
+                   @{@"title":@"Marshall", @"data":Marshall, @"desc":MarshallDesc},
+                   @{@"title":@"Cinema", @"data":Cinema, @"desc":CinematicDesc},
+                   @{@"title":@"Kaufman", @"data":Kaufman, @"desc":KaufmanDesc},
+                   @{@"title":@"Ostrow", @"data":Ostrow, @"desc":OstrowDesc},
+                   @{@"title":@"PhyTherapy", @"data":PhysicalTherapy, @"desc":PhysicalDesc},
+                   @{@"title":@"Rossier", @"data":Rossier, @"desc":RossierDesc},
+                   @{@"title":@"Viterbi", @"data":Viterbi, @"desc":ViterbiDesc},
+                   @{@"title":@"Roski", @"data":Roski, @"desc":RoskiDesc},
+                   @{@"title":@"GeneralEdu", @"data":GeneralEdu, @"desc":GeneralDesc},
+                   @{@"title":@"Gerontology", @"data":Gerontology, @"desc":GerontologyDesc},
+                   @{@"title":@"GradStudies", @"data":GraduateStudies, @"desc":GraduateDesc},
+                   @{@"title":@"Dornsife", @"data":Dornsife, @"desc":DornsifeDesc},
+                   @{@"title":@"Law", @"data":Law, @"desc":LawDesc},
+                   @{@"title":@"Keck", @"data": Keck, @"desc":KeckDesc},
+                   @{@"title":@"Thornton", @"data":Thornton, @"desc":ThorntonDesc},
+                   @{@"title":@"OT", @"data":OccupationalScience, @"desc":OccupationalDesc},
+                   @{@"title":@"Pharmacy", @"data":Pharmacy, @"desc":PharmacyDesc},
+                   @{@"title":@"Price", @"data":Price, @"desc":PriceDesc},
+                   @{@"title":@"SocialWork", @"data":SocialWork, @"desc":SocialDesc},
+                   @{@"title":@"DramaticArts", @"data":DramaticArts, @"desc":DramaticDesc},
                    nil];
     _termName = [NSMutableArray arrayWithObjects:@"Summer 15", @"Spring 15", @"Fall 14", @"Summer 14", nil];
     _levelName = [NSMutableArray arrayWithObjects:@"All", @"Undergrade", @"Graduate", nil];
@@ -217,8 +243,15 @@
         } else{
             NSInteger leftRow = indexPath.leftRow;
             NSDictionary *menuDic = [_schoolName objectAtIndex:leftRow];
-            
-            return [[menuDic objectForKey:@"data"] objectAtIndex:indexPath.row];
+            NSString * info;
+            if (leftRow){
+                info = [NSString stringWithFormat:@"%@-%@",
+                               [[menuDic objectForKey:@"data"] objectAtIndex:indexPath.row],
+                               [[menuDic objectForKey:@"desc"] objectAtIndex:indexPath.row]];
+            }else{
+                info = @"Department";
+            }
+            return info;
         }
     } else if (indexPath.column==0) {
         

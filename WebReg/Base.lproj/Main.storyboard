@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -10,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -176,7 +175,7 @@
                         <constraints>
                             <constraint firstItem="o4z-8Y-V1W" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="20" id="3BE-Ui-yfp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CT6-Wm-ra7" secondAttribute="trailing" constant="20" id="AI4-fq-IiL"/>
-                            <constraint firstItem="o4z-8Y-V1W" firstAttribute="top" secondItem="CT6-Wm-ra7" secondAttribute="centerY" priority="900" constant="70" id="FZY-Eq-fsW"/>
+                            <constraint firstItem="o4z-8Y-V1W" firstAttribute="top" secondItem="CT6-Wm-ra7" secondAttribute="bottom" constant="-20" id="FZY-Eq-fsW"/>
                             <constraint firstItem="CT6-Wm-ra7" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="ITW-uX-Lep"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="o4z-8Y-V1W" secondAttribute="bottom" constant="40" id="Pju-Of-A4S"/>
                             <constraint firstItem="CT6-Wm-ra7" firstAttribute="centerX" secondItem="o4z-8Y-V1W" secondAttribute="centerX" id="Vzr-i1-4oR"/>

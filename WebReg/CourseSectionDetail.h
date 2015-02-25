@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface CourseSectionDetail : UIView
+@interface CourseSectionDetail : UIView<UIAlertViewDelegate>
 
 - (id)initWithFrame:(CGRect)frame withTitle:(NSString *)title withInfo:(NSString *)info;
 

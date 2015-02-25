@@ -31,7 +31,7 @@
     _scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
     [self.view addSubview: _scrollView];
     
-    NSString * url = [[NSString alloc] initWithFormat:@"http://petri.esd.usc.edu/socAPI/Courses/%ld/%ld", _termCode, _courseID];
+    NSString * url = [[NSString alloc] initWithFormat:@"http://petri.esd.usc.edu/socAPI/Courses/%ld/%ld", (long)_termCode, (long)_courseID];
     // Create the request.
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
     // Create url connection and fire request

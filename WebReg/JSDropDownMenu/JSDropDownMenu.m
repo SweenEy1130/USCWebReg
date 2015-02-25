@@ -887,7 +887,8 @@
 - (void)confiMenuWithSelectRow:(NSInteger)row leftOrRight:(NSInteger)leftOrRight{
     CATextLayer *title = (CATextLayer *)_titles[_currentSelectedMenudIndex];
     title.string = [self.dataSource menu:self titleForRowAtIndexPath:[JSIndexPath indexPathWithCol:self.currentSelectedMenudIndex leftOrRight:leftOrRight leftRow:_leftSelectedRow row:row]];
-    
+    title.string = [title.string componentsSeparatedByString:@"-"][0];
+    // NSLog(@"%@", title.string);
     [self animateIdicator:_indicators[_currentSelectedMenudIndex] background:_backGroundView leftTableView:_leftTableView rightTableView:_rightTableView title:_titles[_currentSelectedMenudIndex] forward:NO complecte:^{
         _show = NO;
     }];
