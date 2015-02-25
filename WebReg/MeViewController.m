@@ -8,14 +8,17 @@
 
 #import "MeViewController.h"
 #import "RDVTabBarController.h"
+#import "RDVTabBarItem.h"
 #import "XHPathCover.h"
 #import "MCSwipeTableViewCell.h"
 #import "ViewController.h"
 #import "TFNotificationTableViewController.h"
+#import "MLPAccessoryBadge.h"
 
 @interface MeViewController ()
 {
     NSMutableArray *_settingEntries;
+    MLPAccessoryBadge * accessoryBadge;
 }
 @property (nonatomic, strong) XHPathCover *pathCover;
 @end
@@ -40,13 +43,16 @@
     
     [_pathCover setBackgroundImage:[UIImage imageNamed:@"USC-Campus-Night-PC.jpg"]];
     [_pathCover setAvatarImage:[UIImage imageWithData:imageData]];
-    [_pathCover setInfo:[NSDictionary dictionaryWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults]
-                                                                            stringForKey:@"Username"], XHUserNameKey, @"Fight on! Trojan!", XHBirthdayKey, nil]];
+    [_pathCover setInfo:[NSDictionary dictionaryWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] stringForKey:@"Username"], XHUserNameKey, @"Fight on! Trojan!", XHBirthdayKey, nil]];
     self.tableView.tableHeaderView = self.pathCover;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-
+    
+    [[self rdv_tabBarItem] setBadgeValue:@"3"];
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    [self.tableView reloadData];
+    [super viewWillDisappear:animated];
+}
 #pragma mark - scroll delegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -89,7 +95,23 @@
         [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"settings@%ld.png", (long)indexPath.row]]];
         [cell.imageView setFrame:CGRectMake(8, 8, 16, 16)];
     }
-    
+    if (indexPath.row == 0){
+        NSInteger _nitem = [[[NSUserDefaults standardUserDefaults] objectForKey:@"notificationTitles"] count];
+        accessoryBadge = [MLPAccessoryBadge new];
+        [accessoryBadge setTextWithIntegerValue: _nitem];
+        [cell setAccessoryView:accessoryBadge];
+        [accessoryBadge.textLabel setFont:[UIFont systemFontOfSize:14.0]];
+        [accessoryBadge setCornerRadius:3];
+        [accessoryBadge setHighlightAlpha:0];
+        [accessoryBadge setShadowAlpha:0];
+        [accessoryBadge setBackgroundColor:[UIColor colorWithRed:179.0/255.0 green:0/255.0 blue:6.0/255.0 alpha:1.0]];
+        [accessoryBadge setGradientAlpha:0];
+        if (_nitem == 0){
+            // NSLog(@"No");
+            [cell.accessoryView setHidden:YES];
+        }
+    }
+
     return cell;
 }
 

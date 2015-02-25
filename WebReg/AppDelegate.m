@@ -28,6 +28,13 @@
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
         
         [self.window setRootViewController:tabbarController];
+    }else{
+        // Set default value
+        NSArray *notificationTitles = [NSArray arrayWithObjects: @"CSCI-571", @"CSCI-555", @"CSCI-561", @"CSCI-561", @"CSCI-555", @"CSCI-570", nil];
+        NSArray *notificationDescriptions = [NSArray arrayWithObjects: @"Homework 2 ends on Mar 10th.", @"Lab 3 ends on Mar 1st.", @"Midterm II will be on Mar 25nd.", @"Homework 2 has been released.", @"Quiz two is on Mar 2nd", @"Midterm I grades has been released.", nil];
+        [[NSUserDefaults standardUserDefaults] setObject:notificationTitles forKey:@"notificationTitles"];
+        [[NSUserDefaults standardUserDefaults] setObject:notificationDescriptions forKey:@"notificationDescriptions"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
     return YES;
 }

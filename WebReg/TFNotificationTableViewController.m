@@ -12,10 +12,10 @@
 
 @interface TFNotificationTableViewController () <MCSwipeTableViewCellDelegate, UIAlertViewDelegate>
 
-@property (nonatomic, assign) NSArray *notificationTitles;
-@property (nonatomic, assign) NSArray *notificationDescriptions;
+@property (nonatomic, strong) NSMutableArray *notificationTitles;
+@property (nonatomic, strong) NSMutableArray *notificationDescriptions;
 
-@property (nonatomic, assign) NSUInteger nbItems;
+@property (nonatomic, assign) NSInteger nbItems;
 @property (nonatomic, strong) MCSwipeTableViewCell *cellToDelete;
 
 @end
@@ -25,9 +25,12 @@
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
-        self.notificationTitles = [NSArray arrayWithObjects: @"CSCI-571", @"CSCI-555", @"CSCI-561", @"CSCI-561", @"CSCI-555", @"CSCI-570", nil];
-        self.notificationDescriptions = [NSArray arrayWithObjects: @"Homework 2 ends on Mar 10th.", @"Lab 3 ends on Mar 1st.", @"Midterm II will be on Mar 25nd.", @"Homework 2 has been released.", @"Quiz two is on Mar 2nd", @"Midterm I grades has been released.", nil];
-        _nbItems = [self.notificationDescriptions count];
+        _nbItems =[[[NSUserDefaults standardUserDefaults] objectForKey:@"notificationTitles"] count];
+        self.notificationTitles = [[NSMutableArray alloc] initWithCapacity:_nbItems];
+        self.notificationDescriptions = [[NSMutableArray alloc] initWithCapacity:_nbItems];
+
+        [self.notificationTitles  addObjectsFromArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"notificationTitles"]];
+        [self.notificationDescriptions addObjectsFromArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"notificationDescriptions"]];
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
@@ -52,7 +55,6 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
-    
     [super viewWillDisappear:animated];
 }
 - (void)didReceiveMemoryWarning {
@@ -90,7 +92,7 @@
     UIView *crossView = [self viewWithImageName:@"Cross"];
     UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
 
-    // Setting the default inactive state color to the tableView background color
+    // Setting the default inactive state color to the tableView background color    
     [cell setDefaultColor:self.tableView.backgroundView.backgroundColor];
     
     [cell setDelegate:self];
@@ -149,6 +151,13 @@
     
     _nbItems--;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+
+    [self.notificationTitles removeObjectAtIndex:indexPath.row];
+    [self.notificationDescriptions removeObjectAtIndex:indexPath.row];
+    [[NSUserDefaults standardUserDefaults] setObject:self.notificationTitles forKey:@"notificationTitles"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.notificationDescriptions forKey:@"notificationDescriptions"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 

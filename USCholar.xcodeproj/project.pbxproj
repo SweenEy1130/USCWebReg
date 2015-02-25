@@ -45,6 +45,7 @@
 		1BB35AE21A9A9AEF000BB427 /* CourseSectionDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB35AE11A9A9AEF000BB427 /* CourseSectionDetail.m */; };
 		1BD3EC8F1A9DC97A00D08A6B /* MCSwipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD3EC8E1A9DC97A00D08A6B /* MCSwipeTableViewCell.m */; };
 		1BD3EC921A9DC9AF00D08A6B /* TFNotificationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD3EC911A9DC9AF00D08A6B /* TFNotificationTableViewController.m */; };
+		1BDA0D031A9E57C00032757F /* MLPAccessoryBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDA0D021A9E57C00032757F /* MLPAccessoryBadge.m */; };
 		3F3062991A8A780800FEC85F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3062981A8A780800FEC85F /* main.m */; };
 		3F30629C1A8A780800FEC85F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F30629B1A8A780800FEC85F /* AppDelegate.m */; };
 		3F30629F1A8A780800FEC85F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F30629E1A8A780800FEC85F /* ViewController.m */; };
@@ -120,6 +121,8 @@
 		1BD3EC8E1A9DC97A00D08A6B /* MCSwipeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSwipeTableViewCell.m; sourceTree = "<group>"; };
 		1BD3EC901A9DC9AF00D08A6B /* TFNotificationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFNotificationTableViewController.h; sourceTree = "<group>"; };
 		1BD3EC911A9DC9AF00D08A6B /* TFNotificationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFNotificationTableViewController.m; sourceTree = "<group>"; };
+		1BDA0D011A9E57C00032757F /* MLPAccessoryBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAccessoryBadge.h; sourceTree = "<group>"; };
+		1BDA0D021A9E57C00032757F /* MLPAccessoryBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPAccessoryBadge.m; sourceTree = "<group>"; };
 		3F3062931A8A780800FEC85F /* USCholar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = USCholar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F3062971A8A780800FEC85F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F3062981A8A780800FEC85F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -181,6 +184,7 @@
 		1B7377091A8E842B00444E78 /* TabbarControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1B7376FC1A8E7D4000444E78 /* RDVTabBarController */,
 				1B73770A1A8E844300444E78 /* CalendarViewController.h */,
 				1B73770B1A8E844300444E78 /* CalendarViewController.m */,
 				1B73770D1A8E845500444E78 /* CourseViewController.h */,
@@ -260,6 +264,8 @@
 		1BD3EC8C1A9DC97A00D08A6B /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				1BDA0D011A9E57C00032757F /* MLPAccessoryBadge.h */,
+				1BDA0D021A9E57C00032757F /* MLPAccessoryBadge.m */,
 				1BD3EC8D1A9DC97A00D08A6B /* MCSwipeTableViewCell.h */,
 				1BD3EC8E1A9DC97A00D08A6B /* MCSwipeTableViewCell.m */,
 			);
@@ -293,7 +299,6 @@
 				1B3D1FCA1A9A60900056B191 /* CourseDetailView */,
 				1B7377411A8EA8CD00444E78 /* JSDropDownMenu */,
 				1B7377091A8E842B00444E78 /* TabbarControllers */,
-				1B7376FC1A8E7D4000444E78 /* RDVTabBarController */,
 				1B847A3C1A8DDE65009989B6 /* Resources */,
 				3F30629A1A8A780800FEC85F /* AppDelegate.h */,
 				3F30629B1A8A780800FEC85F /* AppDelegate.m */,
@@ -464,6 +469,7 @@
 				1B5927FD1A9C001900B660BD /* MeViewController.m in Sources */,
 				1BA1F6A31A9C453200176424 /* XHPathCover.m in Sources */,
 				1B940A8A1A9C808A00967FA6 /* TFTableViewController.m in Sources */,
+				1BDA0D031A9E57C00032757F /* MLPAccessoryBadge.m in Sources */,
 				1B7377051A8E7D4000444E78 /* RDVTabBarItem.m in Sources */,
 				3F30629C1A8A780800FEC85F /* AppDelegate.m in Sources */,
 				1B7377041A8E7D4000444E78 /* RDVTabBarController.m in Sources */,
