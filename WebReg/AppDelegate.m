@@ -10,6 +10,7 @@
 #import "MeViewController.h"
 #import "RDVTabBarController.h"
 #import "TabbarController.h"
+#import "TFNotificationTableViewController.h"
 
 @interface AppDelegate ()
 

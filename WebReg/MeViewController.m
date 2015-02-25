@@ -9,8 +9,10 @@
 #import "MeViewController.h"
 #import "RDVTabBarController.h"
 #import "XHPathCover.h"
-#import "TFTableViewCell.h"
+#import "MCSwipeTableViewCell.h"
 #import "ViewController.h"
+#import "TFNotificationTableViewController.h"
+
 @interface MeViewController ()
 {
     NSMutableArray *_settingEntries;
@@ -80,9 +82,9 @@
 {
     static NSString *CellIdentifier = @"Cell";
     
-    TFTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    MCSwipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
-        cell = [[TFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[MCSwipeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         [cell.textLabel setText:_settingEntries[indexPath.row]];
         [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"settings@%ld.png", (long)indexPath.row]]];
         [cell.imageView setFrame:CGRectMake(8, 8, 16, 16)];
@@ -94,8 +96,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    // Logout button
-    if (indexPath.row == 3){
+    if (indexPath.row == 0){
+        // Notification
+        TFNotificationTableViewController *viewController = [[TFNotificationTableViewController alloc] initWithStyle:UITableViewStylePlain];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }else if (indexPath.row == 3){
+        // Logout button
         NSString *domainName = [[NSBundle mainBundle] bundleIdentifier];
         [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:domainName];
         

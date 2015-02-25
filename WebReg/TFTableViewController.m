@@ -7,7 +7,7 @@
 //
 
 #import "TFTableViewController.h"
-#import "TFTableViewCell.h"
+#import "MCSwipeTableViewCell.h"
 #import "DetailViewController.h"
 
 @implementation TFTableViewController{
@@ -60,13 +60,23 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
-    TFTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    MCSwipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell) {
-        cell = [[TFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[MCSwipeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    
     [[cell textLabel] setText:[NSString stringWithFormat:@"%@ %@", [_courseCode objectAtIndex:indexPath.row],
                                [_courseTitle objectAtIndex: indexPath.row]]];
+    
+    UIView *crossView = [self viewWithImageName:@"Cross"];
+    UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
+
+    [cell setSwipeGestureWithView:crossView color:redColor mode:MCSwipeTableViewCellModeExit state:MCSwipeTableViewCellState1 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
+        // NSLog(@"Did swipe \"Cross\" cell");
+        [self deleteCell:cell];
+    }];
+
     return cell;
 }
 
@@ -178,5 +188,22 @@
     [self.view addSubview:activityView];
 
 }
+
+#pragma mark - Utils
+- (void)deleteCell:(MCSwipeTableViewCell *)cell {
+    NSParameterAssert(cell);
+    
+    _courseNo--;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+}
+
+- (UIView *)viewWithImageName:(NSString *)imageName {
+    UIImage *image = [UIImage imageNamed:imageName];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.contentMode = UIViewContentModeCenter;
+    return imageView;
+}
+
 
 @end

@@ -42,8 +42,9 @@
 		1BA1F6A31A9C453200176424 /* XHPathCover.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA1F69A1A9C453200176424 /* XHPathCover.m */; };
 		1BA1F6A51A9C453200176424 /* XHWaterDropRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA1F69E1A9C453200176424 /* XHWaterDropRefresh.m */; };
 		1BA1F6A91A9C474300176424 /* USC-Campus-Night-PC.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1BA1F6A81A9C474300176424 /* USC-Campus-Night-PC.jpg */; };
-		1BA1F6AC1A9C500700176424 /* TFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA1F6AB1A9C500700176424 /* TFTableViewCell.m */; };
 		1BB35AE21A9A9AEF000BB427 /* CourseSectionDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB35AE11A9A9AEF000BB427 /* CourseSectionDetail.m */; };
+		1BD3EC8F1A9DC97A00D08A6B /* MCSwipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD3EC8E1A9DC97A00D08A6B /* MCSwipeTableViewCell.m */; };
+		1BD3EC921A9DC9AF00D08A6B /* TFNotificationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD3EC911A9DC9AF00D08A6B /* TFNotificationTableViewController.m */; };
 		3F3062991A8A780800FEC85F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3062981A8A780800FEC85F /* main.m */; };
 		3F30629C1A8A780800FEC85F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F30629B1A8A780800FEC85F /* AppDelegate.m */; };
 		3F30629F1A8A780800FEC85F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F30629E1A8A780800FEC85F /* ViewController.m */; };
@@ -113,10 +114,12 @@
 		1BA1F69D1A9C453200176424 /* XHWaterDropRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHWaterDropRefresh.h; sourceTree = "<group>"; };
 		1BA1F69E1A9C453200176424 /* XHWaterDropRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHWaterDropRefresh.m; sourceTree = "<group>"; };
 		1BA1F6A81A9C474300176424 /* USC-Campus-Night-PC.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "USC-Campus-Night-PC.jpg"; path = "Images.xcassets/USC-Campus-Night-PC.jpg"; sourceTree = "<group>"; };
-		1BA1F6AA1A9C500700176424 /* TFTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFTableViewCell.h; sourceTree = "<group>"; };
-		1BA1F6AB1A9C500700176424 /* TFTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFTableViewCell.m; sourceTree = "<group>"; };
 		1BB35AE01A9A9AEF000BB427 /* CourseSectionDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseSectionDetail.h; sourceTree = "<group>"; };
 		1BB35AE11A9A9AEF000BB427 /* CourseSectionDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseSectionDetail.m; sourceTree = "<group>"; };
+		1BD3EC8D1A9DC97A00D08A6B /* MCSwipeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSwipeTableViewCell.h; sourceTree = "<group>"; };
+		1BD3EC8E1A9DC97A00D08A6B /* MCSwipeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSwipeTableViewCell.m; sourceTree = "<group>"; };
+		1BD3EC901A9DC9AF00D08A6B /* TFNotificationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFNotificationTableViewController.h; sourceTree = "<group>"; };
+		1BD3EC911A9DC9AF00D08A6B /* TFNotificationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFNotificationTableViewController.m; sourceTree = "<group>"; };
 		3F3062931A8A780800FEC85F /* USCholar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = USCholar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F3062971A8A780800FEC85F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F3062981A8A780800FEC85F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -151,7 +154,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1B3D1FCA1A9A60900056B191 /* CourseDetailUI */ = {
+		1B3D1FCA1A9A60900056B191 /* CourseDetailView */ = {
 			isa = PBXGroup;
 			children = (
 				1B3D1FCB1A9A60BA0056B191 /* CourseDetailHeader.h */,
@@ -159,7 +162,7 @@
 				1BB35AE01A9A9AEF000BB427 /* CourseSectionDetail.h */,
 				1BB35AE11A9A9AEF000BB427 /* CourseSectionDetail.m */,
 			);
-			name = CourseDetailUI;
+			name = CourseDetailView;
 			sourceTree = "<group>";
 		};
 		1B7376FC1A8E7D4000444E78 /* RDVTabBarController */ = {
@@ -188,10 +191,10 @@
 				1B73773F1A8E90C200444E78 /* DetailViewController.m */,
 				1B5927FB1A9C001900B660BD /* MeViewController.h */,
 				1B5927FC1A9C001900B660BD /* MeViewController.m */,
-				1BA1F6AA1A9C500700176424 /* TFTableViewCell.h */,
-				1BA1F6AB1A9C500700176424 /* TFTableViewCell.m */,
 				1B940A881A9C808A00967FA6 /* TFTableViewController.h */,
 				1B940A891A9C808A00967FA6 /* TFTableViewController.m */,
+				1BD3EC901A9DC9AF00D08A6B /* TFNotificationTableViewController.h */,
+				1BD3EC911A9DC9AF00D08A6B /* TFNotificationTableViewController.m */,
 			);
 			name = TabbarControllers;
 			sourceTree = "<group>";
@@ -254,6 +257,16 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		1BD3EC8C1A9DC97A00D08A6B /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				1BD3EC8D1A9DC97A00D08A6B /* MCSwipeTableViewCell.h */,
+				1BD3EC8E1A9DC97A00D08A6B /* MCSwipeTableViewCell.m */,
+			);
+			name = TableViewCells;
+			path = MCSwipeTableViewCell;
+			sourceTree = "<group>";
+		};
 		3F30628A1A8A780800FEC85F = {
 			isa = PBXGroup;
 			children = (
@@ -275,8 +288,9 @@
 		3F3062951A8A780800FEC85F /* USCWebReg */ = {
 			isa = PBXGroup;
 			children = (
+				1BD3EC8C1A9DC97A00D08A6B /* TableViewCells */,
 				1BA1F6311A9C453200176424 /* PathCover */,
-				1B3D1FCA1A9A60900056B191 /* CourseDetailUI */,
+				1B3D1FCA1A9A60900056B191 /* CourseDetailView */,
 				1B7377411A8EA8CD00444E78 /* JSDropDownMenu */,
 				1B7377091A8E842B00444E78 /* TabbarControllers */,
 				1B7376FC1A8E7D4000444E78 /* RDVTabBarController */,
@@ -446,10 +460,10 @@
 			files = (
 				3F30629F1A8A780800FEC85F /* ViewController.m in Sources */,
 				1B73770F1A8E845500444E78 /* CourseViewController.m in Sources */,
+				1BD3EC921A9DC9AF00D08A6B /* TFNotificationTableViewController.m in Sources */,
 				1B5927FD1A9C001900B660BD /* MeViewController.m in Sources */,
 				1BA1F6A31A9C453200176424 /* XHPathCover.m in Sources */,
 				1B940A8A1A9C808A00967FA6 /* TFTableViewController.m in Sources */,
-				1BA1F6AC1A9C500700176424 /* TFTableViewCell.m in Sources */,
 				1B7377051A8E7D4000444E78 /* RDVTabBarItem.m in Sources */,
 				3F30629C1A8A780800FEC85F /* AppDelegate.m in Sources */,
 				1B7377041A8E7D4000444E78 /* RDVTabBarController.m in Sources */,
@@ -458,6 +472,7 @@
 				1BA1F6A51A9C453200176424 /* XHWaterDropRefresh.m in Sources */,
 				1B7377031A8E7D4000444E78 /* RDVTabBar.m in Sources */,
 				1BB35AE21A9A9AEF000BB427 /* CourseSectionDetail.m in Sources */,
+				1BD3EC8F1A9DC97A00D08A6B /* MCSwipeTableViewCell.m in Sources */,
 				3F3062991A8A780800FEC85F /* main.m in Sources */,
 				1B3D1FCD1A9A60BA0056B191 /* CourseDetailHeader.m in Sources */,
 				1B7377461A8EA8CD00444E78 /* JSDropDownMenu.m in Sources */,

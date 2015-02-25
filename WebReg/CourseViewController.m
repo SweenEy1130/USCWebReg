@@ -10,7 +10,6 @@
 #import "RDVTabBarController.h"
 #import "RDVTabBarItem.h"
 #import "JSDropDownMenu.h"
-#import "TFTableViewCell.h"
 #import "TFTableViewController.h"
 
 @interface CourseViewController () <JSDropDownMenuDataSource, JSDropDownMenuDelegate>{
