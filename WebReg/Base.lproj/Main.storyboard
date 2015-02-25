@@ -213,6 +213,76 @@
             </objects>
             <point key="canvasLocation" x="-1271" y="133"/>
         </scene>
+        <!--Weekly View Controller-->
+        <scene sceneID="Bhd-CN-Hah">
+            <objects>
+                <viewController storyboardIdentifier="WeeklyViewController" id="tjm-2i-MA4" customClass="WeeklyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nw7-Hl-eZi"/>
+                        <viewControllerLayoutGuide type="bottom" id="nLo-Q3-f1s"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="chq-1Y-tzC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UEa-Wo-VWR" customClass="JTCalendarMenuView">
+                                <rect key="frame" x="16" y="28" width="584" height="80"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="BIh-0c-fRr"/>
+                                </constraints>
+                            </scrollView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jBd-BM-dYM">
+                                <rect key="frame" x="16" y="222" width="568" height="370"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="370" id="ABi-rR-8ZZ"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="tjm-2i-MA4" id="ewG-K5-Ja3"/>
+                                    <outlet property="delegate" destination="tjm-2i-MA4" id="jcV-M5-tmk"/>
+                                </connections>
+                            </tableView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u6i-ms-bU3" customClass="JTCalendarContentView">
+                                <rect key="frame" x="16" y="114" width="584" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="EGZ-GG-BFB"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="UEa-Wo-VWR" secondAttribute="trailing" id="2cb-Jn-gWn"/>
+                            <constraint firstItem="u6i-ms-bU3" firstAttribute="bottom" secondItem="nLo-Q3-f1s" secondAttribute="top" constant="-386" id="54i-Af-1p2"/>
+                            <constraint firstItem="UEa-Wo-VWR" firstAttribute="top" secondItem="chq-1Y-tzC" secondAttribute="top" constant="28" id="QbS-yO-dk1"/>
+                            <constraint firstItem="UEa-Wo-VWR" firstAttribute="trailing" secondItem="u6i-ms-bU3" secondAttribute="trailing" id="Svx-XA-QaN"/>
+                            <constraint firstItem="nLo-Q3-f1s" firstAttribute="top" secondItem="jBd-BM-dYM" secondAttribute="bottom" constant="8" id="SyB-Am-9VR"/>
+                            <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="UEa-Wo-VWR" secondAttribute="bottom" constant="492" id="YPy-1u-N7f"/>
+                            <constraint firstItem="u6i-ms-bU3" firstAttribute="top" secondItem="UEa-Wo-VWR" secondAttribute="bottom" constant="6" id="ccf-jQ-Aln"/>
+                            <constraint firstItem="UEa-Wo-VWR" firstAttribute="leading" secondItem="u6i-ms-bU3" secondAttribute="leading" id="fHz-5V-y9a"/>
+                            <constraint firstItem="jBd-BM-dYM" firstAttribute="trailing" secondItem="chq-1Y-tzC" secondAttribute="trailingMargin" id="gIl-En-lHy"/>
+                            <constraint firstItem="jBd-BM-dYM" firstAttribute="leading" secondItem="u6i-ms-bU3" secondAttribute="leading" id="j7k-hc-H6R"/>
+                            <constraint firstItem="UEa-Wo-VWR" firstAttribute="leading" secondItem="chq-1Y-tzC" secondAttribute="leadingMargin" id="lMB-aJ-AFP"/>
+                            <constraint firstItem="u6i-ms-bU3" firstAttribute="top" secondItem="UEa-Wo-VWR" secondAttribute="bottom" constant="8" id="ub3-Ms-KzK"/>
+                            <constraint firstItem="jBd-BM-dYM" firstAttribute="top" secondItem="u6i-ms-bU3" secondAttribute="bottom" constant="8" id="x5t-79-7fj"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="54i-Af-1p2"/>
+                                <exclude reference="ub3-Ms-KzK"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="calendarContentView" destination="u6i-ms-bU3" id="QlP-EY-vmG"/>
+                        <outlet property="calendarMenuView" destination="UEa-Wo-VWR" id="o8t-xz-NsW"/>
+                        <outlet property="tableView" destination="jBd-BM-dYM" id="0xT-LT-vxp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uhL-jG-CGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="380" y="1007"/>
+        </scene>
     </scenes>
     <resources>
         <image name="USCholar.png" width="794" height="404"/>
