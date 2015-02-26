@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NVCalendar.h"
 
-@interface CalendarViewController : UIViewController
+@interface CalendarViewController : UIViewController <NVCalendarDataSource, NVCalendarDelegate>
 
 @end
