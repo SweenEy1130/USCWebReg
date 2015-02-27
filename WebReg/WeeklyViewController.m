@@ -15,6 +15,10 @@
 @property (nonatomic, strong) NSMutableArray *events;
 @property (nonatomic, strong) NSArray *eventsForDate;
 
+@property (nonatomic, strong) UIBarButtonItem *modeItem;
+@property (nonatomic, strong) UIBarButtonItem *todayItem;
+
+
 @end
 
 @implementation WeeklyViewController
@@ -22,13 +26,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _todayItem = [[UIBarButtonItem alloc] initWithTitle:@"Today" style:UIBarButtonItemStylePlain target:self action:@selector(didGoTodayTouch)];
+    _modeItem = [[UIBarButtonItem alloc] initWithTitle:@"Week" style:UIBarButtonItemStylePlain target:self action:@selector(didChangeModeTouch)];
+    
+    self.navigationItem.rightBarButtonItem = _modeItem;
+    self.navigationItem.leftBarButtonItem = _todayItem;
+    
     self.calendar = [JTCalendar new];
     
     [self.calendar setMenuMonthsView:self.calendarMenuView];
     [self.calendar setContentView:self.calendarContentView];
     [self.calendar setDataSource:self];
     
-    self.calendar.calendarAppearance.isWeekMode = YES;
+    self.calendar.calendarAppearance.isWeekMode = NO;
     
     self.calendar.calendarAppearance.calendar.firstWeekday = 2; // Monday
     self.calendar.calendarAppearance.ratioContentMenu = 1.;
@@ -124,6 +134,53 @@
     Event *event = [self.eventsForDate objectAtIndex:indexPath.row];
     cell.textLabel.text = event.title;
     return cell;
+}
+
+#pragma mark - Navigation bar trigger
+- (void)didGoTodayTouch
+{
+    [self.calendar setCurrentDate:[NSDate date]];
+    NSLog(@"Touch today");
+}
+- (void)didChangeModeTouch
+{
+    if ([_modeItem.title isEqualToString:@"Month"]){
+        [_modeItem setTitle:@"Week"];
+    }else{
+        [_modeItem setTitle:@"Month"];
+    }
+    self.calendar.calendarAppearance.isWeekMode = !self.calendar.calendarAppearance.isWeekMode;
+    NSLog(@"Touch change view");
+    [self transitionExample];
+}
+
+#pragma mark - Transition examples
+
+- (void)transitionExample
+{
+    CGFloat newHeight = 300;
+    if(self.calendar.calendarAppearance.isWeekMode){
+        newHeight = 75.;
+    }
+    
+    [UIView animateWithDuration:.5
+                     animations:^{
+                         self.calendarContentViewHeight.constant = newHeight;
+                         [self.view layoutIfNeeded];
+                     }];
+    
+    [UIView animateWithDuration:.25
+                     animations:^{
+                         self.calendarContentView.layer.opacity = 0;
+                     }
+                     completion:^(BOOL finished) {
+                         [self.calendar reloadAppearance];
+                         
+                         [UIView animateWithDuration:.25
+                                          animations:^{
+                                              self.calendarContentView.layer.opacity = 1;
+                                          }];
+                     }];
 }
 
 @end

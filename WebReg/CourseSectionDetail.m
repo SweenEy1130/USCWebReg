@@ -97,7 +97,7 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"Button Index =%ld",buttonIndex);
+    NSLog(@"Button Index =%ld",(long)buttonIndex);
     if (buttonIndex == 1)
     {
         // NSLog(@"You have clicked Yes");

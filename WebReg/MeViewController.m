@@ -7,8 +7,6 @@
 //
 
 #import "MeViewController.h"
-#import "RDVTabBarController.h"
-#import "RDVTabBarItem.h"
 #import "XHPathCover.h"
 #import "MCSwipeTableViewCell.h"
 #import "ViewController.h"
@@ -47,8 +45,6 @@
     [_pathCover setInfo:[NSDictionary dictionaryWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] stringForKey:@"Username"], XHUserNameKey, @"Fight on! Trojan!", XHBirthdayKey, nil]];
     self.tableView.tableHeaderView = self.pathCover;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    
-    [[self rdv_tabBarItem] setBadgeValue:@"3"];
 }
 - (void)viewWillAppear:(BOOL)animated{
     [self.tableView reloadData];
