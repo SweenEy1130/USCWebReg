@@ -42,7 +42,7 @@
     
     //self.textLabel.backgroundColor =  [UIColor greenColor];
     //self.backgroundColor = [UIColor grayColor];
-    NSLog(@"%f, %f, %f", self.frame.origin.y, h, h/2.0+l/2.0);
+    // NSLog(@"%f, %f, %f", self.frame.origin.y, h, h/2.0+l/2.0);
 }
 
 @end

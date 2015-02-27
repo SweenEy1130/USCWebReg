@@ -24,8 +24,11 @@
 		0527EE781A9E665A009B190C /* JTCalendarWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0527EE6C1A9E665A009B190C /* JTCalendarWeekView.m */; };
 		0527EE791A9E665A009B190C /* JTCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0527EE6E1A9E665A009B190C /* JTCircleView.m */; };
 		0527EE7D1A9E90C7009B190C /* UIDevice+Resolutions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0527EE7C1A9E90C7009B190C /* UIDevice+Resolutions.m */; };
-		0FEBA6E51AA0685200411F17 /* dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FEBA6E41AA0685200411F17 /* dot.png */; };
+		0FEBA6E51AA0685200411F17 /* dot@1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FEBA6E41AA0685200411F17 /* dot@1.png */; };
 		0FEBA6E81AA0696700411F17 /* CalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FEBA6E71AA0696700411F17 /* CalTableViewCell.m */; };
+		0FEBA6EC1AA08EDD00411F17 /* dot@2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FEBA6E91AA08EDD00411F17 /* dot@2.png */; };
+		0FEBA6ED1AA08EDD00411F17 /* dot@3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FEBA6EA1AA08EDD00411F17 /* dot@3.png */; };
+		0FEBA6EE1AA08EDD00411F17 /* dot@4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FEBA6EB1AA08EDD00411F17 /* dot@4.png */; };
 		1B1B292B1A9E683B00EAF686 /* settings@0.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B1B292A1A9E683B00EAF686 /* settings@0.png */; };
 		1B1B292E1A9E6A7900EAF686 /* TFCourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1B292D1A9E6A7900EAF686 /* TFCourseTableViewController.m */; };
 		1B3D1FCD1A9A60BA0056B191 /* CourseDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3D1FCC1A9A60BA0056B191 /* CourseDetailHeader.m */; };
@@ -123,9 +126,12 @@
 		0527EE6E1A9E665A009B190C /* JTCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCircleView.m; sourceTree = "<group>"; };
 		0527EE7B1A9E90C7009B190C /* UIDevice+Resolutions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Resolutions.h"; sourceTree = "<group>"; };
 		0527EE7C1A9E90C7009B190C /* UIDevice+Resolutions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Resolutions.m"; sourceTree = "<group>"; };
-		0FEBA6E41AA0685200411F17 /* dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dot.png; path = Images.xcassets/dot.png; sourceTree = "<group>"; };
+		0FEBA6E41AA0685200411F17 /* dot@1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dot@1.png"; path = "Images.xcassets/dot@1.png"; sourceTree = "<group>"; };
 		0FEBA6E61AA0696700411F17 /* CalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalTableViewCell.h; sourceTree = "<group>"; };
 		0FEBA6E71AA0696700411F17 /* CalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalTableViewCell.m; sourceTree = "<group>"; };
+		0FEBA6E91AA08EDD00411F17 /* dot@2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dot@2.png"; path = "Images.xcassets/dot@2.png"; sourceTree = "<group>"; };
+		0FEBA6EA1AA08EDD00411F17 /* dot@3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dot@3.png"; path = "Images.xcassets/dot@3.png"; sourceTree = "<group>"; };
+		0FEBA6EB1AA08EDD00411F17 /* dot@4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dot@4.png"; path = "Images.xcassets/dot@4.png"; sourceTree = "<group>"; };
 		1B1B292A1A9E683B00EAF686 /* settings@0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@0.png"; path = "Images.xcassets/settings@0.png"; sourceTree = "<group>"; };
 		1B1B292C1A9E6A7900EAF686 /* TFCourseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFCourseTableViewController.h; sourceTree = "<group>"; };
 		1B1B292D1A9E6A7900EAF686 /* TFCourseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFCourseTableViewController.m; sourceTree = "<group>"; };
@@ -337,7 +343,10 @@
 		1B847A3C1A8DDE65009989B6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0FEBA6E41AA0685200411F17 /* dot.png */,
+				0FEBA6E91AA08EDD00411F17 /* dot@2.png */,
+				0FEBA6EA1AA08EDD00411F17 /* dot@3.png */,
+				0FEBA6EB1AA08EDD00411F17 /* dot@4.png */,
+				0FEBA6E41AA0685200411F17 /* dot@1.png */,
 				1B1B292A1A9E683B00EAF686 /* settings@0.png */,
 				1B424AD31A9D2785008C6428 /* first_normal@2x.png */,
 				1B424AD41A9D2785008C6428 /* icon_plus.png */,
@@ -549,7 +558,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F3062A21A8A780800FEC85F /* Main.storyboard in Resources */,
-				0FEBA6E51AA0685200411F17 /* dot.png in Resources */,
+				0FEBA6E51AA0685200411F17 /* dot@1.png in Resources */,
 				1B73772E1A8E8E9000444E78 /* navigationbar_background@2x.png in Resources */,
 				1B424AE41A9D2785008C6428 /* third_normal@2x.png in Resources */,
 				1B1B292B1A9E683B00EAF686 /* settings@0.png in Resources */,
@@ -558,9 +567,11 @@
 				1B73772B1A8E8E9000444E78 /* navigationbar_background_tall.png in Resources */,
 				1B73772C1A8E8E9000444E78 /* navigationbar_background_tall@2x.png in Resources */,
 				1B424AE01A9D2785008C6428 /* settings@1.png in Resources */,
+				0FEBA6ED1AA08EDD00411F17 /* dot@3.png in Resources */,
 				1B7377451A8EA8CD00444E78 /* ico_make.png in Resources */,
 				1BA1F6A01A9C453200176424 /* circle.png in Resources */,
 				1B7377341A8E8E9000444E78 /* tabbar_normal_background@2x.png in Resources */,
+				0FEBA6EC1AA08EDD00411F17 /* dot@2.png in Resources */,
 				1B424ADE1A9D2785008C6428 /* USCholar.png in Resources */,
 				1B424AE31A9D2785008C6428 /* second_normal@2x.png in Resources */,
 				3F3062BD1A8A7B3800FEC85F /* USC-background.jpg in Resources */,
@@ -570,6 +581,7 @@
 				1BA1F6A11A9C453200176424 /* circle@2x.png in Resources */,
 				1B7377361A8E8E9000444E78 /* tabbar_selected_background@2x.png in Resources */,
 				3F3062A71A8A780800FEC85F /* LaunchScreen.xib in Resources */,
+				0FEBA6EE1AA08EDD00411F17 /* dot@4.png in Resources */,
 				1B424ADF1A9D2785008C6428 /* settings@3.png in Resources */,
 				1B424AE21A9D2785008C6428 /* settings@2.png in Resources */,
 				1B7377351A8E8E9000444E78 /* tabbar_selected_background.png in Resources */,

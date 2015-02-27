@@ -21,8 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    // UIViewController *firstViewController = [[CalendarViewController alloc] init];
-//    CalViewController *firstViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CalViewController"];
     UIViewController *firstViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"WeeklyViewController"];
     firstViewController.title = @"Calendar";
     UIViewController *firstNavigationController = [[UINavigationController alloc]
@@ -37,7 +35,7 @@
                                                    initWithRootViewController:thirdViewController];
     
     [self setViewControllers:@[firstNavigationController, secondNavigationController, thirdNavigationController]];
-    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     [self customizeTabBarForController:self];
     [self customizeInterface];
 }

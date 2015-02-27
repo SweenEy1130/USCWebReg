@@ -17,11 +17,23 @@
 @end
 
 @implementation AppDelegate
-
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    }
+    
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+    
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.fireDate = [[NSDate date] dateByAddingTimeInterval:5];
+    notification.alertBody = [NSString stringWithFormat: @"Couser has been added!"];
+    notification.alertAction = NSLocalizedString(@"View Details", nil);
+    
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    notification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     
     if ([[NSUserDefaults standardUserDefaults] stringForKey:@"Username"] != nil){
         RDVTabBarController *tabbarController = [[TabbarController alloc] init];
@@ -67,6 +79,24 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    UIApplicationState state = [application applicationState];
+    if (state == UIApplicationStateActive) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification"
+                                                        message:notification.alertBody
+                                                       delegate:self cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    // Request to reload table view data
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadData" object:self];
+    
+    // Set icon badge number to zero
+    application.applicationIconBadgeNumber--;
 }
 
 @end

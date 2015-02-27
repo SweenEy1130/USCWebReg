@@ -54,16 +54,32 @@
     self.events = [[NSMutableArray alloc] init];
     
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-    [dateComponents setMonth:2];
+    // [dateComponents setMonth:2];
     [dateComponents setYear:2015];
-    
+
+    // Hardcore Events
     Event *myEvent;
-    
-    for(int i = 2; i <= 88; i++) {
-        [dateComponents setDay:i % 28];
-        myEvent = [[Event alloc] initWithDate:[[NSCalendar currentCalendar] dateFromComponents:dateComponents] withTitle:[NSString stringWithFormat:@"Course %d", i] withTime:@"17:00-18:20"];
+    for(int i = 2; i <= 18; i++) {
+        [dateComponents setWeekOfYear:i];
+        for (int j = 3; j <=5; j+=2){
+            [dateComponents setWeekday:j];
+            myEvent = [[Event alloc] initWithDate:[[NSCalendar currentCalendar] dateFromComponents:dateComponents] withTitle:@"CSCI-561" withTime:@"17:00-18:20" withCategory:1];
+            [self.events addObject:myEvent];
+            
+            myEvent = [[Event alloc] initWithDate:[[NSCalendar currentCalendar] dateFromComponents:dateComponents] withTitle:@"CSCI-571" withTime:@"19:00-20:20" withCategory:2];
+            [self.events addObject:myEvent];
+        }
+        
+        [dateComponents setWeekday:2];
+        myEvent = [[Event alloc] initWithDate:[[NSCalendar currentCalendar] dateFromComponents:dateComponents] withTitle:@"CSCI-555" withTime:@"14:00-16:50" withCategory:3];
         [self.events addObject:myEvent];
     }
+    
+    [dateComponents setMonth:3];
+    [dateComponents setYear:2015];
+    [dateComponents setDay:2];
+    myEvent = [[Event alloc] initWithDate:[[NSCalendar currentCalendar] dateFromComponents:dateComponents] withTitle:@"CSCI-555 Lab 4" withTime:@"23:59" withCategory:2];
+    [self.events addObject:myEvent];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,13 +123,13 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Event *event = [self.eventsForDate objectAtIndex:indexPath.row];
-    [[[UIAlertView alloc] initWithTitle:@"Tapped Event"
-                               message:event.title
-                              delegate:nil
-                     cancelButtonTitle:@"OK"
-                      otherButtonTitles:nil, nil] show];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    Event *event = [self.eventsForDate objectAtIndex:indexPath.row];
+//    [[[UIAlertView alloc] initWithTitle:@"Tapped Event"
+//                               message:event.title
+//                              delegate:nil
+//                     cancelButtonTitle:@"OK"
+//                      otherButtonTitles:nil, nil] show];
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - UITableViewDataSource
@@ -147,11 +163,12 @@
     cell.textLabel.text = event.title;
     cell.detailTextLabel.text = event.time;
     
+    NSLog(@"%d", event.category);
+    [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"dot@%d.png", event.category]]];
+    
     // [cell.textLabel setText: @"Introduction to Aritifical intellegence"];
     // [cell.detailTextLabel setText: @"17:00 - 18:20"];
-
-    [cell.imageView setImage:[UIImage imageNamed:@"dot.png"]];
-  
+    
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 }
 

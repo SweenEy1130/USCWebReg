@@ -10,6 +10,17 @@
 #import "MCSwipeTableViewCell.h"
 #import "DetailViewController.h"
 
+@interface TFTableViewController()<UISearchResultsUpdating, UISearchBarDelegate>
+
+@property (strong, nonatomic) UIActivityIndicatorView * activityView;
+
+@property (strong, nonatomic) UISearchController * courseSearchController;
+@property (nonatomic, strong) NSMutableArray *searchCourseTitle;
+@property (nonatomic, strong) NSMutableArray *searchCourseCode;
+@property (nonatomic, strong) NSMutableArray *searchCourseId;
+
+@end
+#define SEARCH_BAR_HEIGHT 44.0
 @implementation TFTableViewController{
     NSMutableArray *_courseID;
     NSMutableArray *_courseCode;
@@ -17,18 +28,38 @@
     int _courseNo;
     NSString * _curTerm;
     NSInteger _curLevelIdx;
-    
-    UIActivityIndicatorView * activityView;
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];}
+    [super viewDidLoad];
+    // Search Bar Controller
+    _searchCourseCode = [NSMutableArray arrayWithCapacity:0];
+    _searchCourseTitle = [NSMutableArray arrayWithCapacity:0];
+    _searchCourseId = [NSMutableArray arrayWithCapacity:0];
+    
+    _courseSearchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    _courseSearchController.dimsBackgroundDuringPresentation = NO;
+    _courseSearchController.hidesNavigationBarDuringPresentation = NO;
+
+    _courseSearchController.searchBar.frame = CGRectMake(_courseSearchController.searchBar.frame.origin.x, _courseSearchController.searchBar.frame.origin.y, _courseSearchController.searchBar.frame.size.width, SEARCH_BAR_HEIGHT);
+    _courseSearchController.searchResultsUpdater = self;
+ 
+    self.tableView.tableHeaderView = _courseSearchController.searchBar;
+    // self.definesPresentationContext = YES;
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    self.tableView.contentOffset = CGPointMake(0, SEARCH_BAR_HEIGHT);
+}
+
 -(id)initWithStyle:(UITableViewStyle)style{
     self = [super initWithStyle:style];
     if (self) {
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [self.tableView setBackgroundColor: [UIColor colorWithRed:244/255.0 green:244/255.0 blue:244/255.0 alpha:1.0]];
+        self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     }
     return self;
 }
@@ -57,7 +88,6 @@
     return 45.0f;;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     MCSwipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -66,8 +96,11 @@
         cell = [[MCSwipeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    [[cell textLabel] setText:[NSString stringWithFormat:@"%@ %@", [_courseCode objectAtIndex:indexPath.row],
-                               [_courseTitle objectAtIndex: indexPath.row]]];
+    if (_courseSearchController.active){
+        [[cell textLabel] setText:[NSString stringWithFormat:@"%@ %@", [_searchCourseCode objectAtIndex:indexPath.row], [_searchCourseTitle objectAtIndex: indexPath.row]]];
+    }else{
+        [[cell textLabel] setText:[NSString stringWithFormat:@"%@ %@", [_courseCode objectAtIndex:indexPath.row], [_courseTitle objectAtIndex: indexPath.row]]];
+    }
     
     UIView *crossView = [self viewWithImageName:@"Cross"];
     UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
@@ -81,16 +114,27 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _courseNo;
+    if (_courseSearchController.active){
+        // NSLog(@"Search result: %ld", [_searchCourseTitle count]);
+        return [_searchCourseCode count];
+    }else{
+        return _courseNo;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     DetailViewController *viewController = [[DetailViewController alloc] init];
-    viewController._courseID = [_courseID[indexPath.row] intValue];
+    if (_courseSearchController.active){
+        viewController._courseID = [_searchCourseId[indexPath.row] intValue];
+        viewController._courseCode = _searchCourseCode[indexPath.row];
+    }else{
+        viewController._courseID = [_courseID[indexPath.row] intValue];
+        viewController._courseCode = _courseCode[indexPath.row];
+    }
     viewController._termCode = [_curTerm integerValue];
-    viewController._courseCode = _courseCode[indexPath.row];
+
     [self.parentViewController.navigationController pushViewController:viewController animated:YES];
 }
 
@@ -123,7 +167,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     // The request is complete and data has been received
     // You can parse the stuff in your instance variable now
-    [activityView stopAnimating];
+    [_activityView stopAnimating];
     NSError *jsonParsingError = nil;
     NSMutableArray *JSONData = [NSJSONSerialization JSONObjectWithData:_responseData options:0 error:&jsonParsingError];
     
@@ -152,11 +196,11 @@
             [_courseID addObject:dictionary[@"COURSE_ID"]];
             _courseNo++;
         }
-        
     }
     [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
-    // [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+    
     [self.tableView reloadData];
+    self.tableView.contentOffset = CGPointMake(0, SEARCH_BAR_HEIGHT);
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
@@ -177,15 +221,15 @@
     // Clear previous result
     _courseNo = 0;
     [self.tableView reloadData];
-    
+
     // Add loading indicator
-    if (activityView == nil){
-        activityView=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-        activityView.center = CGPointMake(self.view.center.x, self.view.center.y - 50);
-        activityView.color = [UIColor colorWithRed:179.0/255.0 green:0/255.0 blue:6.0/255.0 alpha:1.0];
+    if (_activityView == nil){
+        _activityView=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        _activityView.center = CGPointMake(self.view.center.x, self.view.center.y - 50);
+        _activityView.color = [UIColor colorWithRed:179.0/255.0 green:0/255.0 blue:6.0/255.0 alpha:1.0];
     }
-    [activityView startAnimating];
-    [self.view addSubview:activityView];
+    [_activityView startAnimating];
+    [self.view addSubview:_activityView];
 
 }
 
@@ -203,6 +247,44 @@
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     imageView.contentMode = UIViewContentModeCenter;
     return imageView;
+}
+
+#pragma mark - UISearchResultsUpdating
+-(void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    NSString *searchString = [_courseSearchController.searchBar text];
+    
+    [self updateFilteredContentForText:searchString type:nil];
+    
+    [self.tableView reloadData];
+}
+
+#pragma mark - UISearchBarDelegate
+// Workaround for bug: -updateSearchResultsForSearchController: is not called when scope buttons change
+- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
+    [self updateSearchResultsForSearchController:_courseSearchController];
+}
+
+#pragma mark - Content Filtering
+- (void)updateFilteredContentForText:(NSString *)productName type:(NSString *)typeName {
+    /*  Search the main list for products whose type matches the scope (if selected) and whose name matches searchText; add items that match to the filtered array.
+     */
+    [_searchCourseTitle removeAllObjects];
+    [_searchCourseCode removeAllObjects];
+    for (int i = 0; i < [_courseTitle count]; i++) {
+        NSString *searchText = [NSString stringWithFormat:@"%@ %@", _courseCode[i], _courseTitle[i]];
+        // NSLog(@"%@",searchText);
+        if (typeName == nil) {
+            NSUInteger searchOptions = NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch;
+            NSRange productNameRange = NSMakeRange(0, searchText.length);
+            NSRange foundRange = [searchText rangeOfString:productName options:searchOptions range:productNameRange];
+            if (foundRange.length > 0) {
+                // NSLog(@"Found");
+                [_searchCourseCode addObject: _courseCode[i]];
+                [_searchCourseTitle addObject:_courseTitle[i]];
+                [_searchCourseId addObject:_courseID[i]];
+            }
+        }
+    }
 }
 
 

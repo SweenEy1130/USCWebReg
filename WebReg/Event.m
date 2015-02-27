@@ -10,11 +10,12 @@
 
 @implementation Event
 
-- (id)initWithDate:(NSDate *)date withTitle:(NSString *)title withTime:(NSString *)time;{
+- (id)initWithDate:(NSDate *)date withTitle:(NSString *)title withTime:(NSString *)time withCategory:(int)category{
     if(self = [super init]) {
         _date = date;
         _title = title;
         _time = time;
+        _category = category;
     }
     return self;
 }

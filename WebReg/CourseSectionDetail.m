@@ -103,6 +103,14 @@
     {
         // NSLog(@"You have clicked Yes");
         [plusBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateNormal];
+        
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.fireDate = [[NSDate date] dateByAddingTimeInterval:5];
+        notification.alertBody = [NSString stringWithFormat: @"%@ has been added!", courseTitle];
+        notification.soundName = UILocalNotificationDefaultSoundName;
+        notification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     }
     else if(buttonIndex == 0)
     {
