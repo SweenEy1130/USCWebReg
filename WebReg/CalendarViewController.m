@@ -72,8 +72,8 @@
     
     for(int i = 2; i <= 28; i++) {
         [dateComponents setDay:i];
-        myEvent = [[Event alloc] initWithDate:[[NSCalendar currentCalendar] dateFromComponents:dateComponents]];
-        myEvent.title = @"A simple title";
+        myEvent = [[Event alloc] initWithDate:[[NSCalendar currentCalendar] dateFromComponents:dateComponents] withTitle:@"A simple title" withTime:@"17:00-18:00"];
+
         [events addObject:myEvent];
         i += [self randomNumberBetween:1 maxNumber:5];
     }

@@ -12,7 +12,8 @@
 
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *time;
 
-- (id)initWithDate:(NSDate *)date;
+- (id)initWithDate:(NSDate *)date withTitle:(NSString *)title withTime:(NSString *)time;
 
 @end

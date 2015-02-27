@@ -7,6 +7,7 @@
 //
 
 #import "WeeklyViewController.h"
+#import "CalTableViewCell.h"
 #import "Event.h"
 
 
@@ -29,11 +30,14 @@
     _todayItem = [[UIBarButtonItem alloc] initWithTitle:@"Today" style:UIBarButtonItemStylePlain target:self action:@selector(didGoTodayTouch)];
     _modeItem = [[UIBarButtonItem alloc] initWithTitle:@"Week" style:UIBarButtonItemStylePlain target:self action:@selector(didChangeModeTouch)];
     
-    self.navigationItem.rightBarButtonItem = _modeItem;
-    self.navigationItem.leftBarButtonItem = _todayItem;
+    self.navigationItem.leftBarButtonItem = _modeItem;
+    self.navigationItem.rightBarButtonItem = _todayItem;
+    
+    // No separator for empty table cells.
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     self.calendar = [JTCalendar new];
-    
+   
     [self.calendar setMenuMonthsView:self.calendarMenuView];
     [self.calendar setContentView:self.calendarContentView];
     [self.calendar setDataSource:self];
@@ -42,7 +46,9 @@
     
     self.calendar.calendarAppearance.calendar.firstWeekday = 2; // Monday
     self.calendar.calendarAppearance.ratioContentMenu = 1.;
-    self.calendar.calendarAppearance.dayCircleColorSelected = [UIColor blueColor];
+    // USC red
+    // self.calendar.calendarAppearance.dayCircleColorSelected =[UIColor colorWithRed:179.0/255.0 green:0/255.0 blue:6.0/255.0 alpha:1.0];
+    self.calendar.calendarAppearance.dayDotColor = [UIColor colorWithRed:179.0/255.0 green:0/255.0 blue:6.0/255.0 alpha:1.0];
     [self.calendar reloadAppearance];
     
     self.events = [[NSMutableArray alloc] init];
@@ -53,18 +59,11 @@
     
     Event *myEvent;
     
-    for(int i = 2; i <= 28; i++) {
-        [dateComponents setDay:i];
-        myEvent = [[Event alloc] initWithDate:[[NSCalendar currentCalendar] dateFromComponents:dateComponents]];
-        myEvent.title = @"A sample title";
+    for(int i = 2; i <= 88; i++) {
+        [dateComponents setDay:i % 28];
+        myEvent = [[Event alloc] initWithDate:[[NSCalendar currentCalendar] dateFromComponents:dateComponents] withTitle:[NSString stringWithFormat:@"Course %d", i] withTime:@"17:00-18:20"];
         [self.events addObject:myEvent];
-        i += [self randomNumberBetween:1 maxNumber:5];
     }
-}
-
-- (NSInteger)randomNumberBetween:(NSInteger)min maxNumber:(NSInteger)max
-{
-    return min + arc4random_uniform(max - min + 1);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -93,13 +92,16 @@
 
 - (void)calendarDidDateSelected:(JTCalendar *)calendar date:(NSDate *)date
 {
-    NSLog(@"%@", date);
-    
     NSPredicate *filter = [NSPredicate predicateWithFormat:@"(date == %@)", date];
     self.eventsForDate = [self.events filteredArrayUsingPredicate:filter];
-    if(self.eventsForDate.count > 0) {
-        [self.tableView reloadData];
-    }
+    
+    [self.calendar setCurrentDate:date];
+    
+    if ([_modeItem.title isEqualToString:@"Week"])
+        [self didChangeModeTouch];
+
+    [self.tableView reloadData];
+    // NSLog(@"%@", date);
 }
 
 #pragma mark - UITableViewDelegate
@@ -126,22 +128,41 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"StateCell";
-    UITableViewCell *cell;
+    CalTableViewCell *cell;
     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[CalTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    Event *event = [self.eventsForDate objectAtIndex:indexPath.row];
-    cell.textLabel.text = event.title;
+    
+    [self configureCell:cell forRowAtIndexPath:indexPath];
     return cell;
 }
+
+- (void)configureCell:(CalTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    // NSLog(@"%d %d", indexPath.row, [_eventsForDate count]);
+    if ([_eventsForDate count] == 0)
+        return;
+    Event *event = [_eventsForDate objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = event.title;
+    cell.detailTextLabel.text = event.time;
+    
+    // [cell.textLabel setText: @"Introduction to Aritifical intellegence"];
+    // [cell.detailTextLabel setText: @"17:00 - 18:20"];
+
+    [cell.imageView setImage:[UIImage imageNamed:@"dot.png"]];
+  
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+}
+
 
 #pragma mark - Navigation bar trigger
 - (void)didGoTodayTouch
 {
     [self.calendar setCurrentDate:[NSDate date]];
-    NSLog(@"Touch today");
+    // NSLog(@"Touch today");
 }
+
 - (void)didChangeModeTouch
 {
     if ([_modeItem.title isEqualToString:@"Month"]){
@@ -150,7 +171,7 @@
         [_modeItem setTitle:@"Month"];
     }
     self.calendar.calendarAppearance.isWeekMode = !self.calendar.calendarAppearance.isWeekMode;
-    NSLog(@"Touch change view");
+    // NSLog(@"Touch change view");
     [self transitionExample];
 }
 

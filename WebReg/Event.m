@@ -10,9 +10,11 @@
 
 @implementation Event
 
-- (id)initWithDate:(NSDate *)date {
+- (id)initWithDate:(NSDate *)date withTitle:(NSString *)title withTime:(NSString *)time;{
     if(self = [super init]) {
-        self.date = date;
+        _date = date;
+        _title = title;
+        _time = time;
     }
     return self;
 }

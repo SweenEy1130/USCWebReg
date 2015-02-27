@@ -10,6 +10,7 @@
 
 @implementation CourseSectionDetail{
     NSString * courseTitle;
+    UIButton * plusBtn;
 }
 
 /*
@@ -39,7 +40,7 @@
         tHeight += sectionidField.bounds.size.height;
         
         courseTitle = title;
-        UIButton *plusBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        plusBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         plusBtn.frame = CGRectMake(self.bounds.size.width-35, 8, sectionidField.bounds.size.height-16, sectionidField.bounds.size.height-16);
         UIImage *plusImage = [UIImage imageNamed:@"icon_plus"];
         [plusBtn setImage:plusImage forState:UIControlStateNormal];
@@ -101,6 +102,7 @@
     if (buttonIndex == 1)
     {
         // NSLog(@"You have clicked Yes");
+        [plusBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateNormal];
     }
     else if(buttonIndex == 0)
     {
