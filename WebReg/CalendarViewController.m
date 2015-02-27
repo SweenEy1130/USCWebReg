@@ -72,8 +72,8 @@
     
     for(int i = 2; i <= 28; i++) {
         [dateComponents setDay:i];
-        myEvent = [[Event alloc] initWithDate:[[NSCalendar currentCalendar] dateFromComponents:dateComponents]];
-        myEvent.title = @"A simple title";
+        myEvent = [[Event alloc] initWithDate:[[NSCalendar currentCalendar] dateFromComponents:dateComponents] withTitle:@"A simple title" withTime:@"17:00-18:00" withCategory:4];
+
         [events addObject:myEvent];
         i += [self randomNumberBetween:1 maxNumber:5];
     }
@@ -94,7 +94,7 @@
 - (void)calendarDidTappedOnWeek:(NSInteger)week month:(NSInteger)month year:(NSInteger)year {
     //trigger week view for month
     [[[UIAlertView alloc] initWithTitle:@"Week Tapped"
-                                message:[NSString stringWithFormat:@"Week %d of month %d of year %d", week, month, year]
+                                message:[NSString stringWithFormat:@"Week %ld of month %ld of year %ld", (long)week, (long)month, (long)year]
                                delegate:nil
                       cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     

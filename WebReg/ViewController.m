@@ -31,7 +31,7 @@
 - (IBAction)SignUp:(id)sender {
 }
 
-- (IBAction)LoginSubmit:(id)sender {
+- (IBAction)LoginSubmit:(id)sender {    
     NSString *valueToSave = LoginUsername.text;
     [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:@"Username"];
     [[NSUserDefaults standardUserDefaults] synchronize];

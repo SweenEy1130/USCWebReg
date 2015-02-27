@@ -10,6 +10,7 @@
 
 @implementation CourseSectionDetail{
     NSString * courseTitle;
+    UIButton * plusBtn;
 }
 
 /*
@@ -39,7 +40,7 @@
         tHeight += sectionidField.bounds.size.height;
         
         courseTitle = title;
-        UIButton *plusBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        plusBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         plusBtn.frame = CGRectMake(self.bounds.size.width-35, 8, sectionidField.bounds.size.height-16, sectionidField.bounds.size.height-16);
         UIImage *plusImage = [UIImage imageNamed:@"icon_plus"];
         [plusBtn setImage:plusImage forState:UIControlStateNormal];
@@ -97,10 +98,19 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"Button Index =%ld",buttonIndex);
+    NSLog(@"Button Index =%ld",(long)buttonIndex);
     if (buttonIndex == 1)
     {
         // NSLog(@"You have clicked Yes");
+        [plusBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateNormal];
+        
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.fireDate = [[NSDate date] dateByAddingTimeInterval:5];
+        notification.alertBody = [NSString stringWithFormat: @"%@ has been added!", courseTitle];
+        notification.soundName = UILocalNotificationDefaultSoundName;
+        notification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     }
     else if(buttonIndex == 0)
     {
