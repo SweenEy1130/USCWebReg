@@ -9,7 +9,7 @@
 #import "MeViewController.h"
 #import "XHPathCover.h"
 #import "MCSwipeTableViewCell.h"
-#import "ViewController.h"
+#import "LoginController.h"
 #import "TFNotificationTableViewController.h"
 #import "TFCourseTableViewController.h"
 #import "MLPAccessoryBadge.h"
@@ -125,11 +125,8 @@
         [self.navigationController pushViewController:viewController animated:YES];
     }else if (indexPath.row == 3){
         // Logout button
-        NSString *domainName = [[NSBundle mainBundle] bundleIdentifier];
-        [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:domainName];
-        
         UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        ViewController *add = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        LoginController *add = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
         
         [self presentViewController:add animated:YES completion:nil];
     }

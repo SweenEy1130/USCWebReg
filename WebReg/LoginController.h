@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LoginController.h
 //  WebReg
 //
 //  Created by Student on 2/10/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController{
+@interface LoginController : UIViewController{
     
     IBOutlet UITextField *LoginUsername;
     IBOutlet UITextField *LoginPassword;

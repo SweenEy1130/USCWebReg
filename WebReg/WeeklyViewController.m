@@ -51,35 +51,8 @@
     self.calendar.calendarAppearance.dayDotColor = [UIColor colorWithRed:179.0/255.0 green:0/255.0 blue:6.0/255.0 alpha:1.0];
     [self.calendar reloadAppearance];
     
-    self.events = [[NSMutableArray alloc] init];
-    
-    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-    // [dateComponents setMonth:2];
-    [dateComponents setYear:2015];
-
-    // Hardcore Events
-    Event *myEvent;
-    for(int i = 2; i <= 18; i++) {
-        [dateComponents setWeekOfYear:i];
-        for (int j = 3; j <=5; j+=2){
-            [dateComponents setWeekday:j];
-            myEvent = [[Event alloc] initWithDate:[[NSCalendar currentCalendar] dateFromComponents:dateComponents] withTitle:@"CSCI-561" withTime:@"17:00-18:20" withCategory:1];
-            [self.events addObject:myEvent];
-            
-            myEvent = [[Event alloc] initWithDate:[[NSCalendar currentCalendar] dateFromComponents:dateComponents] withTitle:@"CSCI-571" withTime:@"19:00-20:20" withCategory:2];
-            [self.events addObject:myEvent];
-        }
-        
-        [dateComponents setWeekday:2];
-        myEvent = [[Event alloc] initWithDate:[[NSCalendar currentCalendar] dateFromComponents:dateComponents] withTitle:@"CSCI-555" withTime:@"14:00-16:50" withCategory:3];
-        [self.events addObject:myEvent];
-    }
-    
-    [dateComponents setMonth:3];
-    [dateComponents setYear:2015];
-    [dateComponents setDay:2];
-    myEvent = [[Event alloc] initWithDate:[[NSCalendar currentCalendar] dateFromComponents:dateComponents] withTitle:@"CSCI-555 Lab 4" withTime:@"23:59" withCategory:2];
-    [self.events addObject:myEvent];
+    _events = [[NSMutableArray alloc] init];
+    [self reloadEvents];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,10 +68,42 @@
 }
 
 #pragma mark - Data Source
-
+- (void)reloadEvents{
+    [_events removeAllObjects];
+    // Hardcore Events
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    // [dateComponents setMonth:2];
+    [dateComponents setYear:2015];
+    
+    Event *myEvent;
+    for(int i = 2; i <= 18; i++) {
+        [dateComponents setWeekOfYear:i];
+        for (int j = 3; j <=5; j+=2){
+            [dateComponents setWeekday:j];
+            myEvent = [[Event alloc] initWithDate:[[NSCalendar currentCalendar] dateFromComponents:dateComponents] withTitle:@"CSCI-561" withTime:@"17:00-18:20" withCategory:1];
+            [_events addObject:myEvent];
+            
+            myEvent = [[Event alloc] initWithDate:[[NSCalendar currentCalendar] dateFromComponents:dateComponents] withTitle:@"CSCI-571" withTime:@"19:00-20:20" withCategory:2];
+            [_events addObject:myEvent];
+        }
+        
+        if ([[NSUserDefaults standardUserDefaults] stringForKey:@"course"] != nil){
+            [dateComponents setWeekday:2];
+            myEvent = [[Event alloc] initWithDate:[[NSCalendar currentCalendar] dateFromComponents:dateComponents] withTitle:@"CSCI-555" withTime:@"14:00-16:50" withCategory:3];
+            [_events addObject:myEvent];
+        }
+        
+    }
+    
+    [dateComponents setMonth:3];
+    [dateComponents setYear:2015];
+    [dateComponents setDay:2];
+    myEvent = [[Event alloc] initWithDate:[[NSCalendar currentCalendar] dateFromComponents:dateComponents] withTitle:@"CSCI-555 Lab 4" withTime:@"23:59" withCategory:2];
+    [_events addObject:myEvent];
+}
 - (BOOL)calendarHaveEvent:(JTCalendar *)calendar date:(NSDate *)date
 {
-    for (Event *event in self.events) {
+    for (Event *event in _events) {
         if([event.date compare:date] == NSOrderedSame) {
             return YES; // O(n^2)... but demo...
         }
@@ -109,7 +114,7 @@
 - (void)calendarDidDateSelected:(JTCalendar *)calendar date:(NSDate *)date
 {
     NSPredicate *filter = [NSPredicate predicateWithFormat:@"(date == %@)", date];
-    self.eventsForDate = [self.events filteredArrayUsingPredicate:filter];
+    _eventsForDate = [_events filteredArrayUsingPredicate:filter];
     
     [self.calendar setCurrentDate:date];
     
@@ -123,7 +128,7 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    Event *event = [self.eventsForDate objectAtIndex:indexPath.row];
+//    Event *event = [_eventsForDate objectAtIndex:indexPath.row];
 //    [[[UIAlertView alloc] initWithTitle:@"Tapped Event"
 //                               message:event.title
 //                              delegate:nil
@@ -139,7 +144,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.eventsForDate count];
+    return [_eventsForDate count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

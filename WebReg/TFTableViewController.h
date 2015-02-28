@@ -12,6 +12,8 @@
     NSMutableData *_responseData;
 }
 
+@property (strong, nonatomic) UISearchController * courseSearchController;
+
 - (void)getCourseList:(NSString *)curTerm withDept:(NSString *)curDept withLevel:(NSInteger)curLevel;
 
 @end

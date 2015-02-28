@@ -104,6 +104,7 @@
         // NSLog(@"You have clicked Yes");
         [plusBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateNormal];
         
+        // Send notification
         UILocalNotification *notification = [[UILocalNotification alloc] init];
         notification.fireDate = [[NSDate date] dateByAddingTimeInterval:5];
         notification.alertBody = [NSString stringWithFormat: @"%@ has been added!", courseTitle];
@@ -111,6 +112,13 @@
         notification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
         
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        
+        // Add to calendar (Hardcode)
+        // NSMutableDictionary *eventDic = [[NSMutableDictionary alloc] init];
+        // [eventDic setObject:courseTitle forKey:@"title"];
+        [[NSUserDefaults standardUserDefaults] setObject:courseTitle forKey:@"course"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
     }
     else if(buttonIndex == 0)
     {

@@ -24,17 +24,7 @@
     }
     
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
-    
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.fireDate = [[NSDate date] dateByAddingTimeInterval:5];
-    notification.alertBody = [NSString stringWithFormat: @"Couser has been added!"];
-    notification.alertAction = NSLocalizedString(@"View Details", nil);
-    
-    notification.soundName = UILocalNotificationDefaultSoundName;
-    notification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
-    
-    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-    
+
     if ([[NSUserDefaults standardUserDefaults] stringForKey:@"Username"] != nil){
         RDVTabBarController *tabbarController = [[TabbarController alloc] init];
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
@@ -75,6 +65,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [application setApplicationIconBadgeNumber:0];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

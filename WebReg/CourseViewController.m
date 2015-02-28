@@ -27,6 +27,8 @@
 
 @end
 
+#define MENUHEIGHT 45.0
+
 @implementation CourseViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -41,7 +43,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    // Results in the table
+    tfTableViewController = [[TFTableViewController alloc] init];
+    tfTableViewController.tableView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    [self addChildViewController:tfTableViewController];
+    [self.view addSubview:tfTableViewController.tableView];
+
+    
     // Configure dropdown menu
     NSArray *Iovine = @[@"ACAD"];
     NSArray *Leventhal = @[@"ACCT"];
@@ -133,19 +141,13 @@
     NSDictionary *menuDic = [_schoolName objectAtIndex:0];
     _currentDeptCode = [[menuDic objectForKey:@"data"] objectAtIndex:0];
     
-    JSDropDownMenu *menu = [[JSDropDownMenu alloc] initWithOrigin:CGPointMake(0, 0) andHeight:45];
+    JSDropDownMenu *menu = [[JSDropDownMenu alloc] initWithOrigin:CGPointMake(0, 0) andHeight:MENUHEIGHT];
     menu.indicatorColor = [UIColor colorWithRed:175.0f/255.0f green:175.0f/255.0f blue:175.0f/255.0f alpha:1.0];
     menu.separatorColor = [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0];
     menu.textColor = [UIColor colorWithRed:83.f/255.0f green:83.f/255.0f blue:83.f/255.0f alpha:1.0f];
     menu.dataSource = self;
     menu.delegate = self;
     [self.view addSubview:menu];
-    
-    
-    tfTableViewController = [[TFTableViewController alloc] init];
-    tfTableViewController.tableView.frame = CGRectMake(0, 45, self.view.bounds.size.width, self.view.bounds.size.height - 45);
-    [self addChildViewController:tfTableViewController];
-    [self.view addSubview:tfTableViewController.tableView];
 }
 
 - (void)didReceiveMemoryWarning {

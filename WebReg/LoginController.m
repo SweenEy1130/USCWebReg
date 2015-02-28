@@ -1,20 +1,20 @@
 //
-//  ViewController.m
+//  LoginController.m
 //  WebReg
 //
 //  Created by Student on 2/10/15.
 //  Copyright (c) 2015 TFBoys. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "LoginController.h"
 #import "TabbarController.h"
 #import "RDVTabBarController.h"
 #import "TabbarController.h"
 
-@interface ViewController ()
+@interface LoginController ()
 @end
 
-@implementation ViewController
+@implementation LoginController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,16 +29,22 @@
 }
 
 - (IBAction)SignUp:(id)sender {
+    NSString *domainName = [[NSBundle mainBundle] bundleIdentifier];
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:domainName];
+    
+    NSLog(@"Sign up");
 }
 
-- (IBAction)LoginSubmit:(id)sender {    
+- (IBAction)LoginSubmit:(id)sender {
     NSString *valueToSave = LoginUsername.text;
-    [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:@"Username"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    if (![valueToSave isEqualToString:@""]){
+        [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:@"Username"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     
-    RDVTabBarController *tabbarController = [[TabbarController alloc] init];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    [self presentViewController:tabbarController animated:YES completion: nil];
+        RDVTabBarController *tabbarController = [[TabbarController alloc] init];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        [self presentViewController:tabbarController animated:YES completion: nil];
+    }
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

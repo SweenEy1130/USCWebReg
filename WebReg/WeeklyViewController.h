@@ -10,7 +10,6 @@
 #import "JTCalendar.h"
 
 @interface WeeklyViewController : UIViewController <JTCalendarDataSource, UITableViewDataSource, UITableViewDelegate>
-
 @property (weak, nonatomic) IBOutlet JTCalendarMenuView *calendarMenuView;
 @property (weak, nonatomic) IBOutlet JTCalendarContentView *calendarContentView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -19,4 +18,5 @@
 
 @property (strong, nonatomic) JTCalendar *calendar;
 
+- (void)reloadEvents;
 @end

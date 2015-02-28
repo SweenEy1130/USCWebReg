@@ -10,17 +10,18 @@
 #import "MCSwipeTableViewCell.h"
 #import "DetailViewController.h"
 
-@interface TFTableViewController()<UISearchResultsUpdating, UISearchBarDelegate>
+@interface TFTableViewController()<UISearchResultsUpdating>
 
 @property (strong, nonatomic) UIActivityIndicatorView * activityView;
 
-@property (strong, nonatomic) UISearchController * courseSearchController;
 @property (nonatomic, strong) NSMutableArray *searchCourseTitle;
 @property (nonatomic, strong) NSMutableArray *searchCourseCode;
 @property (nonatomic, strong) NSMutableArray *searchCourseId;
 
 @end
+
 #define SEARCH_BAR_HEIGHT 44.0
+
 @implementation TFTableViewController{
     NSMutableArray *_courseID;
     NSMutableArray *_courseCode;
@@ -46,11 +47,12 @@
     _courseSearchController.searchResultsUpdater = self;
  
     self.tableView.tableHeaderView = _courseSearchController.searchBar;
-    // self.definesPresentationContext = YES;
+    self.definesPresentationContext = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    self.tableView.contentInset = UIEdgeInsetsMake(45, 0, 0, 0);
     self.tableView.contentOffset = CGPointMake(0, SEARCH_BAR_HEIGHT);
 }
 
@@ -58,7 +60,7 @@
     self = [super initWithStyle:style];
     if (self) {
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-        [self.tableView setBackgroundColor: [UIColor colorWithRed:244/255.0 green:244/255.0 blue:244/255.0 alpha:1.0]];
+        [self.tableView setBackgroundColor: [UIColor clearColor]];
         self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     }
     return self;
@@ -101,14 +103,6 @@
     }else{
         [[cell textLabel] setText:[NSString stringWithFormat:@"%@ %@", [_courseCode objectAtIndex:indexPath.row], [_courseTitle objectAtIndex: indexPath.row]]];
     }
-    
-    UIView *crossView = [self viewWithImageName:@"Cross"];
-    UIColor *redColor = [UIColor colorWithRed:232.0 / 255.0 green:61.0 / 255.0 blue:14.0 / 255.0 alpha:1.0];
-
-    [cell setSwipeGestureWithView:crossView color:redColor mode:MCSwipeTableViewCellModeExit state:MCSwipeTableViewCellState1 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
-        // NSLog(@"Did swipe \"Cross\" cell");
-        [self deleteCell:cell];
-    }];
 
     return cell;
 }
@@ -134,7 +128,7 @@
         viewController._courseCode = _courseCode[indexPath.row];
     }
     viewController._termCode = [_curTerm integerValue];
-
+    
     [self.parentViewController.navigationController pushViewController:viewController animated:YES];
 }
 
@@ -216,6 +210,7 @@
     
     // Create url connection and fire request
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
     _curLevelIdx = curLevel;
     
     // Clear previous result
@@ -230,7 +225,6 @@
     }
     [_activityView startAnimating];
     [self.view addSubview:_activityView];
-
 }
 
 #pragma mark - Utils
@@ -258,18 +252,13 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - UISearchBarDelegate
-// Workaround for bug: -updateSearchResultsForSearchController: is not called when scope buttons change
-- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
-    [self updateSearchResultsForSearchController:_courseSearchController];
-}
-
 #pragma mark - Content Filtering
 - (void)updateFilteredContentForText:(NSString *)productName type:(NSString *)typeName {
     /*  Search the main list for products whose type matches the scope (if selected) and whose name matches searchText; add items that match to the filtered array.
      */
     [_searchCourseTitle removeAllObjects];
     [_searchCourseCode removeAllObjects];
+    [_searchCourseId removeAllObjects];
     for (int i = 0; i < [_courseTitle count]; i++) {
         NSString *searchText = [NSString stringWithFormat:@"%@ %@", _courseCode[i], _courseTitle[i]];
         // NSLog(@"%@",searchText);

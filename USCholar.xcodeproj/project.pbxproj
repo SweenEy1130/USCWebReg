@@ -72,7 +72,7 @@
 		1BDA0D031A9E57C00032757F /* MLPAccessoryBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDA0D021A9E57C00032757F /* MLPAccessoryBadge.m */; };
 		3F3062991A8A780800FEC85F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3062981A8A780800FEC85F /* main.m */; };
 		3F30629C1A8A780800FEC85F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F30629B1A8A780800FEC85F /* AppDelegate.m */; };
-		3F30629F1A8A780800FEC85F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F30629E1A8A780800FEC85F /* ViewController.m */; };
+		3F30629F1A8A780800FEC85F /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F30629E1A8A780800FEC85F /* LoginController.m */; };
 		3F3062A21A8A780800FEC85F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F3062A01A8A780800FEC85F /* Main.storyboard */; };
 		3F3062A41A8A780800FEC85F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F3062A31A8A780800FEC85F /* Images.xcassets */; };
 		3F3062A71A8A780800FEC85F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F3062A51A8A780800FEC85F /* LaunchScreen.xib */; };
@@ -196,8 +196,8 @@
 		3F3062981A8A780800FEC85F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3F30629A1A8A780800FEC85F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3F30629B1A8A780800FEC85F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3F30629D1A8A780800FEC85F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3F30629E1A8A780800FEC85F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3F30629D1A8A780800FEC85F /* LoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		3F30629E1A8A780800FEC85F /* LoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		3F3062A11A8A780800FEC85F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F3062A31A8A780800FEC85F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3F3062A61A8A780800FEC85F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -438,8 +438,8 @@
 				1B847A3C1A8DDE65009989B6 /* Resources */,
 				3F30629A1A8A780800FEC85F /* AppDelegate.h */,
 				3F30629B1A8A780800FEC85F /* AppDelegate.m */,
-				3F30629D1A8A780800FEC85F /* ViewController.h */,
-				3F30629E1A8A780800FEC85F /* ViewController.m */,
+				3F30629D1A8A780800FEC85F /* LoginController.h */,
+				3F30629E1A8A780800FEC85F /* LoginController.m */,
 				3F3062A01A8A780800FEC85F /* Main.storyboard */,
 				3F3062A31A8A780800FEC85F /* Images.xcassets */,
 				3F3062A51A8A780800FEC85F /* LaunchScreen.xib */,
@@ -608,7 +608,7 @@
 				0527EE521A9E64E5009B190C /* Event.m in Sources */,
 				0527EE7D1A9E90C7009B190C /* UIDevice+Resolutions.m in Sources */,
 				0527EE561A9E664C009B190C /* WeeklyViewController.m in Sources */,
-				3F30629F1A8A780800FEC85F /* ViewController.m in Sources */,
+				3F30629F1A8A780800FEC85F /* LoginController.m in Sources */,
 				0527EE711A9E665A009B190C /* JTCalendarContentView.m in Sources */,
 				1B73770F1A8E845500444E78 /* CourseViewController.m in Sources */,
 				0527EE731A9E665A009B190C /* JTCalendarDayView.m in Sources */,
